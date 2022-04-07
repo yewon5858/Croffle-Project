@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/Date"
+        android:layout_width="match_parent"
+        android:layout_height="86.9dp"
+        android:background="@drawable/rounded_layout"
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/date_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12\n월"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="13\n화"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_3"
+            app:layout_constraintStart_toEndOf="@+id/date_1"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14\n수"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_4"
+            app:layout_constraintStart_toEndOf="@+id/date_2"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15\n목"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_5"
+            app:layout_constraintStart_toEndOf="@+id/date_3"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="16\n금"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_6"
+            app:layout_constraintStart_toEndOf="@+id/date_4"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="17\n토"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/date_7"
+            app:layout_constraintStart_toEndOf="@+id/date_5"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/date_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18\n일"
+           android:textColor="#FE645A"
+            android:textAlignment="center"
+            android:lineSpacingExtra="7dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/date_6"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Date"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
