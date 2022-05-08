@@ -10,6 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+
+        // 차트 라이브러리
+        maven { url "https://jitpack.io" }
     }
 }
 rootProject.name = "Croffle Project"

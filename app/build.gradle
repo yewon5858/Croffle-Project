@@ -43,4 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // 차트 라이브러리 - MPAndroid
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
