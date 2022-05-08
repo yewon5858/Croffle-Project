@@ -7,6 +7,27 @@
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/rounded_layout.xml" value="0.1955" />
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/stats_text.xml" value="0.155" />
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/stats_page.xml" value="0.33" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/debug/res/font/notosans_light.xml" value="0.13603603603603603" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/analytics_icon.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/bg_header.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/header_button.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/ic_baseline_info_24.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.2085" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/ic_selected_color_change.xml" value="0.1365" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/outline.xml" value="0.2085" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/drawable/rectangle_bg.xml" value="0.2085" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/font/pragat.xml" value="0.13603603603603603" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/activity_main.xml" value="0.152" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_analytics.xml" value="0.11145833333333334" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_detail_edit.xml" value="0.152" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_edit.xml" value="0.17387387387387387" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_setting.xml" value="0.23517978620019436" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_sort.xml" value="0.17387387387387387" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/fragment_timer.xml" value="0.152" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/layout/stats_page.xml" value="0.1" />
+        <entry key="..\:/Users/yewon/AndroidStudioProjects/mytime/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
       </map>
     </option>
   </component>
