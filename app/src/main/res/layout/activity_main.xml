@@ -29,5 +29,5 @@
         app:itemRippleColor="@color/purple_500"
         app:itemIconTint="@drawable/ic_selected_color_change"
         />
->>>>>>> main
+
 </androidx.constraintlayout.widget.ConstraintLayout>
