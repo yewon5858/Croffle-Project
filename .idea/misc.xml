@@ -4,8 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/park ju cheol/AndroidStudioProjects/CroffleProject/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.156" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2305" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/layer_list.xml" value="0.2305" />
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/rounded_layout.xml" value="0.1955" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/rounded_layout_date.xml" value="0.2305" />
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/drawable/stats_text.xml" value="0.155" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/activity_setting_page.xml" value="0.3020833333333333" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/activity_stats.xml" value="0.3385416666666667" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/activity_stats_page.xml" value="0.22701149425287356" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/asd.xml" value="0.35052083333333334" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_analytics.xml" value="0.1875" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_detail_edit.xml" value="0.2796875" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_edit.xml" value="0.1875" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_setting.xml" value="0.1875" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_sort.xml" value="0.1875" />
+        <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/fragment_timer.xml" value="0.1875" />
+>>>>>>> main
         <entry key="..\:/Users/tlsdn/Croffle/Croffle-Project/app/src/main/res/layout/stats_page.xml" value="0.33" />
       </map>
     </option>
