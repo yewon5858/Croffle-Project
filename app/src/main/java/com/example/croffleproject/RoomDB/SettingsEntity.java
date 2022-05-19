@@ -23,9 +23,6 @@ public class SettingsEntity {
     @ColumnInfo(name = "Set_SoundMode")
     private boolean sound;
 
-    @ColumnInfo(name = "Set_Volume")
-    private float volume;
-
 
     public int getSid() {
         return Sid;
@@ -65,13 +62,5 @@ public class SettingsEntity {
 
     public void setSoundMode(boolean n_sound) {
         this.sound = n_sound;
-    }
-
-    public float getVolume() {
-        return volume;
-    }
-
-    public void setVolume(float n_volume) {
-        this.volume = n_volume;
     }
 }

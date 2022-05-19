@@ -1,16 +1,17 @@
 package com.example.croffleproject.RoomDB;
 
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 
 @Entity(tableName = "TimerTable")
 public class TimerEntity {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "DisplayNumber")
+    @ColumnInfo(name = "TimerNumber")
     private int Tid;
 
     @ColumnInfo(name = "TimerName")
@@ -20,7 +21,7 @@ public class TimerEntity {
     private int set_time;
 
     @ColumnInfo(name = "Repeat")
-    private List<String> day;
+    private ArrayList<String> day;
 
 
     public int getTid() {
@@ -47,11 +48,11 @@ public class TimerEntity {
         this.set_time = n_set_time;
     }
 
-    public List<String> getRepeat() {
+    public ArrayList<String> getRepeat() {
         return day;
     }
 
-    public void setRepeat(List<String> n_day) {
+    public void setRepeat(ArrayList<String> n_day) {
         this.day = n_day;
     }
 }
