@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.croffleproject.AnalyticsFragment;
 import com.example.croffleproject.R;
@@ -41,12 +42,19 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
-    private void replaceFragment(Fragment fragment){ //fragment를 변경하는 함수
+    public void replaceFragment(Fragment fragment){ //fragment를 변경하는 함수
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout,fragment);
         fragmentTransaction.commit();
     }
+
+    public void HideBottomNavi(boolean state){
+
+        if(state) binding.bottomNav.setVisibility(View.GONE);
+        else binding.bottomNav.setVisibility(View.VISIBLE);
+    }
+
 
 }
