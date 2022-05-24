@@ -20,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        AppDatabase database = Room.databaseBuilder(this, AppDatabase.class,
+                "Mytime-db").allowMainThreadQueries().build();
+
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new TimerFragment());
@@ -48,6 +51,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    AppDatabase Database = Room.databaseBuilder(this, AppDatabase.class, "Mytime_db").build();
 
 }

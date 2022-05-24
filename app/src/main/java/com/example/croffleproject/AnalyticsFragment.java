@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.example.croffleproject.Theme.GraphColor;
 
 import java.util.ArrayList;
 
@@ -79,7 +80,7 @@ public class AnalyticsFragment extends Fragment {
         time.add(new PieEntry(600,"과제"));
 
         PieDataSet pieDataSet = new PieDataSet(time, "");
-        pieDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        pieDataSet.setColors(GraphColor.STANDARD_THEME);
         pieDataSet.setValueTextColor(Color.BLACK);
         pieDataSet.setValueTextSize(16f);
 

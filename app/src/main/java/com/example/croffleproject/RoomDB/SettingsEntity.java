@@ -8,19 +8,19 @@ import androidx.room.ColumnInfo;
 @Entity(tableName = "SettingsTable")
 public class SettingsEntity {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "TemplateNumber")
+    @ColumnInfo(name = "SettingId")
     private int Sid;
 
-    @ColumnInfo(name = "Set_SavingMode")
+    @ColumnInfo(name = "Saving")
     private boolean saving;
 
-    @ColumnInfo(name = "Set_NotificationMode")
+    @ColumnInfo(name = "Notification")
     private boolean notification;
 
-    @ColumnInfo(name = "Set_VibrationMode")
+    @ColumnInfo(name = "Vibration")
     private boolean vibration;
 
-    @ColumnInfo(name = "Set_SoundMode")
+    @ColumnInfo(name = "SoundMode")
     private boolean sound;
 
 
@@ -32,35 +32,35 @@ public class SettingsEntity {
         this.Sid = n_sid;
     }
 
-    public boolean getSavingMode() {
+    public boolean getSaving() {
         return saving;
     }
 
-    public void setSavingMode(boolean n_saving) {
+    public void setSaving(boolean n_saving) {
         this.saving = n_saving;
     }
 
-    public boolean getNotificationMode() {
+    public boolean getNotification() {
         return notification;
     }
 
-    public void setNotificationMode(boolean n_notification) {
+    public void setNotification(boolean n_notification) {
         this.notification = n_notification;
     }
 
-    public boolean getVibrationMode() {
+    public boolean getVibration() {
         return vibration;
     }
 
-    public void setVibrationMode(boolean n_vibration) {
+    public void setVibration(boolean n_vibration) {
         this.vibration = n_vibration;
     }
 
-    public boolean getSoundMode() {
+    public boolean getSound() {
         return sound;
     }
 
-    public void setSoundMode(boolean n_sound) {
+    public void setSound(boolean n_sound) {
         this.sound = n_sound;
     }
 }

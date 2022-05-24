@@ -21,7 +21,7 @@ public class TimerEntity {
     private int set_time;
 
     @ColumnInfo(name = "Repeat")
-    private ArrayList<String> day;
+    private ArrayList<String> repeat;
 
 
     public int getTid() {
@@ -32,27 +32,27 @@ public class TimerEntity {
         this.Tid = n_Tid;
     }
 
-    public String getTimerName() {
+    public String getTimer_name() {
         return timer_name;
     }
 
-    public void setTimerName(String n_timer_name) {
+    public void setTimer_name(String n_timer_name) {
         this.timer_name = n_timer_name;
     }
 
-    public int getSetTime() {
+    public int getSet_time() {
         return set_time;
     }
 
-    public void setSetTime(int n_set_time) {
+    public void setSet_time(int n_set_time) {
         this.set_time = n_set_time;
     }
 
     public ArrayList<String> getRepeat() {
-        return day;
+        return repeat;
     }
 
-    public void setRepeat(ArrayList<String> n_day) {
-        this.day = n_day;
+    public void setRepeat(ArrayList<String> n_repeat) {
+        this.repeat = n_repeat;
     }
 }
