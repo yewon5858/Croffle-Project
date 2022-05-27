@@ -33,13 +33,15 @@
           android:layout_marginEnd="25dp"
           android:layout_marginBottom="20dp"
           android:background="@drawable/outline"
-          app:layout_constraintBottom_toTopOf="@+id/add_button"
+          app:layout_constraintBottom_toTopOf="@+id/addButton"
           app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/textView7"></ImageView>
+          app:layout_constraintTop_toBottomOf="@+id/textView7"
+          app:layout_constraintVertical_bias="0.0"></ImageView>
 
       <EditText
-          android:id="@+id/editText2"
+          android:id="@+id/timerTitle"
           android:layout_width="303dp"
           android:layout_height="67dp"
           android:layout_marginStart="30dp"
@@ -154,10 +156,75 @@
           app:layout_constraintEnd_toEndOf="@+id/imageView2"
           app:layout_constraintHorizontal_bias="0.51"
           app:layout_constraintStart_toStartOf="@+id/imageView2"
-          app:layout_constraintTop_toBottomOf="@+id/editText2"></TextView>
+          app:layout_constraintTop_toBottomOf="@+id/timerTitle"></TextView>
+
+
+      <com.nex3z.togglebuttongroup.MultiSelectToggleGroup
+          android:id="@+id/group_weekdays"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_marginEnd="20dp"
+          app:layout_constraintEnd_toEndOf="@+id/imageView2"
+          app:layout_constraintStart_toStartOf="@+id/imageView2"
+          app:layout_constraintTop_toBottomOf="@+id/scheduletext"
+          app:tbgChildSpacing="auto">
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/sun"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="일"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/mon"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="월"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/tus"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="화"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/wen"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="수"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/thu"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="목"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/fri"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="금"
+              app:tbgMarkerColor="@color/purple_point" />
+
+          <com.nex3z.togglebuttongroup.button.CircularToggle
+              android:id="@+id/sat"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="토"
+              app:tbgMarkerColor="@color/purple_point" />
+
+
+      </com.nex3z.togglebuttongroup.MultiSelectToggleGroup>
 
       <Button
-          android:id="@+id/add_button"
+          android:id="@+id/addButton"
           android:layout_width="0dp"
           android:layout_height="60dp"
           android:layout_marginStart="25dp"
@@ -167,7 +234,6 @@
           android:text="생성"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
-          app:layout_constraintHorizontal_bias="0.0"
           app:layout_constraintStart_toStartOf="parent">
 
       </Button>

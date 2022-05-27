@@ -18,6 +18,10 @@ public class measureTimeEntity {
         M_startTime = m_startTime;
         M_endTime = m_endTime;
     }
+    public measureTimeEntity() {
+    }
+
+
 
     public int getM_id() {
         return M_id;

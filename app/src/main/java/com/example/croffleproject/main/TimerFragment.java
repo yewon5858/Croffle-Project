@@ -3,9 +3,11 @@ package com.example.croffleproject.main;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +18,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.croffleproject.R;
+import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.TimerTableDao;
+import com.example.croffleproject.RoomDB.TimerTableEntity;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 ///**
@@ -33,7 +38,6 @@ public class TimerFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_timer, container, false);
         timeSettingButton = root.findViewById(R.id.timersettingbtn);
-
 
         timeSettingButton.setOnClickListener(view -> {
 
@@ -53,4 +57,7 @@ public class TimerFragment extends Fragment {
             return root;
 
        }
+
+
 }
+
