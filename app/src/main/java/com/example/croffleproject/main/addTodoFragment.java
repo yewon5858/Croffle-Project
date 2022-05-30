@@ -1,34 +1,28 @@
 package com.example.croffleproject.main;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
-import android.renderscript.ScriptGroup;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Switch;
-import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.example.croffleproject.R;
 import com.example.croffleproject.RoomDB.AppDatabase;
 import com.example.croffleproject.RoomDB.TimerTableDao;
 import com.example.croffleproject.RoomDB.TimerTableEntity;
-import com.example.croffleproject.databinding.ActivityMainBinding;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
-import com.example.croffleproject.databinding.FragmentDetailEditBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
+import com.nex3z.togglebuttongroup.button.CircularToggle;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 //
@@ -128,12 +122,22 @@ public class addTodoFragment extends Fragment {
     private void init() {
         MultiSelectToggleGroup multi = null;
         multi = binding.groupWeekdays.findViewById(R.id.group_weekdays);
-        boolean data[] = new boolean[8];
+        CircularToggle sun = multi.findViewById(R.id.sun);
+
+
         multi.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+
             @Override
             public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
-                Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds()+"datadata");
+               // Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds());
 
+                if(checkedId == sun.getId() && isChecked){
+                    Log.e("","is ids!!!!!!!!!");
+                }
+//                Object[] ids = group.getCheckedIds().toArray();
+//                for (int i =0;i<ids.length;i++){
+//                    Log.e(ids[i].toString(),"is ids");
+//                }
             }
         });
     }
