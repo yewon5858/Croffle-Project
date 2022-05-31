@@ -23,6 +23,13 @@ public class SettingsEntity {
     @ColumnInfo(name = "SoundMode")
     private boolean sound;
 
+    public SettingsEntity() {
+        this.Sid = 0;
+        this.saving = true;
+        this.notification = true;
+        this.vibration = true;
+        this.sound = true;
+    }
 
     public int getSid() {
         return Sid;

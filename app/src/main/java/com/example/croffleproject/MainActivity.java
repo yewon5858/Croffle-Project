@@ -8,7 +8,10 @@ import androidx.room.Room;
 
 import android.os.Bundle;
 
+import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.SettingsEntity;
+import com.example.croffleproject.RoomDB.TimerEntity;
 import com.example.croffleproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         AppDatabase database = Room.databaseBuilder(this, AppDatabase.class,
                 "Mytime-db").allowMainThreadQueries().build();
+
+        database.timerDao().insert(new TimerEntity());
+        database.settingsDao().insert(new SettingsEntity());
+        database.analyticsDao().insert(new AnalyticsEntity());
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

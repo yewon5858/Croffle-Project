@@ -4,14 +4,19 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.TypeConverters;
 import androidx.room.Update;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
 public interface TimerDao {
     @Query("SELECT * FROM TimerTable")
     List<TimerEntity> getAll();
+
+    @Query("SELECT TimerNumber FROM timertable")
+    int getTid();
 
     @Insert
     void insert(TimerEntity timerEntity);
@@ -21,4 +26,13 @@ public interface TimerDao {
 
     @Delete
     void delete(TimerEntity timerEntity);
+
+    @Query("SELECT TimerName FROM timertable")
+    String get_tName();
+
+    @Query("SELECT SetTime FROM timertable")
+    int get_sTime();
+
+    @Query("SELECT Repeat FROM timertable")
+    String getRepeat();
 }

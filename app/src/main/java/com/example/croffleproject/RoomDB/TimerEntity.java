@@ -23,6 +23,12 @@ public class TimerEntity {
     @ColumnInfo(name = "Repeat")
     private ArrayList<String> repeat;
 
+    public TimerEntity(){
+        this.Tid = 0;
+        this.timer_name = "TimerTest";
+        this.set_time = 300;
+        this.repeat = null;
+    }
 
     public int getTid() {
         return Tid;

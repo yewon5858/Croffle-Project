@@ -74,10 +74,10 @@ public class AnalyticsFragment extends Fragment {
         PieChart pieChart = (PieChart) v.findViewById(R.id.PieChart);
 
         ArrayList<PieEntry> time = new ArrayList<>();
-        time.add(new PieEntry(508, "개발"));
-        time.add(new PieEntry(600, "토익"));
-        time.add(new PieEntry(750,"자격증"));
-        time.add(new PieEntry(600,"과제"));
+        time.add(new PieEntry(72, "개발"));
+        time.add(new PieEntry(60, "토익"));
+        time.add(new PieEntry(120,"자격증"));
+        time.add(new PieEntry(89,"과제"));
 
         PieDataSet pieDataSet = new PieDataSet(time, "");
         pieDataSet.setColors(GraphColor.STANDARD_THEME);
@@ -88,7 +88,12 @@ public class AnalyticsFragment extends Fragment {
 
         pieChart.setData(pieData);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setCenterText("타이머 시간");
+        pieChart.setCenterText("15일 공부 시간");
+        pieChart.setDrawRoundedSlices(true);
+        pieChart.setHoleRadius(80);
+        pieChart.setLogEnabled(false);
+        pieChart.setDrawEntryLabels(false);
+        pieChart.setDrawMarkers(false);
 
         // Inflate the layout for this fragment
         return v;

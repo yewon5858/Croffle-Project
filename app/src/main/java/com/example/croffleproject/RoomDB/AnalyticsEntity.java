@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-@Entity(tableName = "StatsTable")
+@Entity(tableName = "AnalyticsTable")
 public class AnalyticsEntity {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "AnalyticsId")
@@ -28,6 +28,15 @@ public class AnalyticsEntity {
 
     @ColumnInfo(name = "Maximum")
     private LocalTime maximum;
+
+    public AnalyticsEntity() {
+        this.StId = 0;
+        this.date = LocalDate.now();
+        this.used = null;
+        this.total = LocalTime.now();
+        this.rest = LocalTime.now();
+        this.maximum = LocalTime.now();
+    }
 
     public int getStId() {
         return StId;
