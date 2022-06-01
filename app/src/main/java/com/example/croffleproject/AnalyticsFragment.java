@@ -1,14 +1,22 @@
 package com.example.croffleproject;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.croffleproject.MainActivity;
+import com.example.croffleproject.RoomDB.AnalyticsEntity;
+import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.SettingsEntity;
+import com.example.croffleproject.RoomDB.TimerEntity;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -69,7 +77,6 @@ public class AnalyticsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_analytics, container, false);
-
 
         PieChart pieChart = (PieChart) v.findViewById(R.id.PieChart);
 

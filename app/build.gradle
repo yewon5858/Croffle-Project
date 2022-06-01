@@ -62,4 +62,8 @@ dependencies {
 
     // 차트 라이브러리 - MPAndroid
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // dagger
+    implementation 'com.google.dagger:dagger:2.x'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.x'
 }

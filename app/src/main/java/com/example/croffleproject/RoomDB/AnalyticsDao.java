@@ -13,6 +13,9 @@ public interface AnalyticsDao {
     @Query("SELECT * FROM AnalyticsTable")
     List<AnalyticsEntity> getAll();
 
+    @Query("DELETE FROM AnalyticsTable")
+    void clearTable();
+
     @Insert
     void insert(AnalyticsEntity analyticsEntity);
 

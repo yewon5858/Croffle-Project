@@ -15,8 +15,8 @@ public interface TimerDao {
     @Query("SELECT * FROM TimerTable")
     List<TimerEntity> getAll();
 
-    @Query("SELECT TimerNumber FROM timertable")
-    int getTid();
+    @Query("DELETE FROM TimerTable")
+    void clearTable();
 
     @Insert
     void insert(TimerEntity timerEntity);

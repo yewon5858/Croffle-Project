@@ -14,6 +14,9 @@ public interface SettingsDao {
     @Query("SELECT * FROM SettingsTable")
     LiveData<List<SettingsEntity>> getAll();
 
+    @Query("DELETE FROM SettingsTable")
+    void clearTable();
+
     @Insert
     void insert(SettingsEntity settingsEntity);
 
