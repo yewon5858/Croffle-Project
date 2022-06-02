@@ -35,7 +35,6 @@
             android:layout_height="198dp"
             android:layout_marginTop="50dp"
             android:background="@drawable/header_button"
-            android:onClick="onClick"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

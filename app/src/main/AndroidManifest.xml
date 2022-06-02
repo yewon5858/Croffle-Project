@@ -24,6 +24,9 @@
             android:name=".StatsPageActivity"
             android:exported="false" />
         <activity
+            android:name=".DetectionActivity"
+            android:exported="false" />
+        <activity
             android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>

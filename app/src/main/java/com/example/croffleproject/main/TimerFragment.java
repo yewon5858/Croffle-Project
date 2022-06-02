@@ -6,6 +6,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -26,30 +28,29 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 // * create an instance of this fragment.
 // */
 public class TimerFragment extends Fragment {
-    private ImageButton ultra_start;
+    View root;
+    ImageButton ultra_start;
+    ImageButton timeSettingButton;
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
-
-        ImageButton timeSettingButton;
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_timer, container, false);
+        root = inflater.inflate(R.layout.fragment_timer, container, false);
         timeSettingButton = root.findViewById(R.id.timersettingbtn);
         ultra_start = root.findViewById(R.id.start_timer_btn);
 
         ultra_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intentstart = new Intent(getActivity(), DetectionActivity.class);
-                intentstart.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intentstart);
-                requireActivity().overridePendingTransition(0, 0);
+                Intent intent = new Intent(getActivity(),DetectionActivity.class); //fragment라서 activity intent와는 다른 방식
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent);
             }
         });
-
+/*
         timeSettingButton.setOnClickListener(view -> {
             timerSettingDialog dialog = new timerSettingDialog();
             dialog.show(getActivity().getSupportFragmentManager(), "dialog");
@@ -60,7 +61,7 @@ public class TimerFragment extends Fragment {
 //            d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 //            d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             Log.e("view", "is viewed");
-        });
+        });*/
         return root;
 
     }
