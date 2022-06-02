@@ -35,6 +35,8 @@ public class addTodoFragment extends Fragment {
 
     private static final String LOG_TAG = addTodoFragment.class.getSimpleName();
     private FragmentAddtodoBinding binding = null;
+    boolean[] weekCycleOn = new boolean[7];
+
 
     public addTodoFragment() {
         // Required empty public constructor
@@ -48,11 +50,13 @@ public class addTodoFragment extends Fragment {
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer").build();
-
+//        init();
+//        Log.e(weekCycleOn[0]+"","is weekCycleOn");
         database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
             //timers.toString();
 
             init();
+
         });
 
         //시간관련 입력
@@ -73,7 +77,9 @@ public class addTodoFragment extends Fragment {
             binding.addButton.setOnClickListener(view -> {
                 new InsertAsyncTask(database.timerTableDao())
                         .execute(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
-
+                for(int i =0;i<7;i++){
+                    Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
+                }
                 //mResultTextView.setText(getAllString(db)); // 화면 갱신
             });
 
@@ -112,9 +118,12 @@ public class addTodoFragment extends Fragment {
 
         @Override
         protected Void doInBackground(TimerTableEntity... timers) {
-
-            timerTableDao.insert(timers[0]);
-            Log.e("is add",timers[0].toString());
+            for(int i=0; i< timers.length; i++) {
+                timerTableDao.insert(timers[i]);
+                Log.e("is add",timers[0].toString());
+            }
+//            timerTableDao.insert(timers[0]);
+//            Log.e("is add",timers[0].toString());
             return null;
         }
     }
@@ -123,6 +132,13 @@ public class addTodoFragment extends Fragment {
         MultiSelectToggleGroup multi = null;
         multi = binding.groupWeekdays.findViewById(R.id.group_weekdays);
         CircularToggle sun = multi.findViewById(R.id.sun);
+        CircularToggle mon = multi.findViewById(R.id.mon);
+        CircularToggle tue = multi.findViewById(R.id.tue);
+        CircularToggle wen = multi.findViewById(R.id.wen);
+        CircularToggle thu = multi.findViewById(R.id.thu);
+        CircularToggle fri = multi.findViewById(R.id.fri);
+        CircularToggle sat = multi.findViewById(R.id.sat);
+
 
 
         multi.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
@@ -132,13 +148,40 @@ public class addTodoFragment extends Fragment {
                // Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds());
 
                 if(checkedId == sun.getId() && isChecked){
-                    Log.e("","is ids!!!!!!!!!");
+                    weekCycleOn[0] = true;
+                    Log.e("","Checked sun!!!");
                 }
+                if(checkedId == mon.getId() && isChecked) {
+                    weekCycleOn[1] = true;
+                    Log.e("", "Checked mon!!!");
+                }
+                    if (checkedId == tue.getId() && isChecked) {
+                        weekCycleOn[2] = true;
+                        Log.e("", "Checked tue!!!");
+                    }
+                    if (checkedId == wen.getId() && isChecked) {
+                        weekCycleOn[3] = true;
+                        Log.e("", "Checked wen!!!");
+                    }
+
+                    if (checkedId == thu.getId() && isChecked) {
+                        weekCycleOn[4] = true;
+                        Log.e("", "Checked thu!!!");
+                    }
+                    if (checkedId == fri.getId() && isChecked) {
+                        weekCycleOn[5] = true;
+                        Log.e("", "Checked sat!!!");
+                    }
+
+                    if (checkedId == sat.getId() && isChecked) {
+                        weekCycleOn[6] = true;
+                        Log.e("", "Checked sat!!!");
+                    }
 //                Object[] ids = group.getCheckedIds().toArray();
 //                for (int i =0;i<ids.length;i++){
 //                    Log.e(ids[i].toString(),"is ids");
 //                }
-            }
+                }
         });
     }
 

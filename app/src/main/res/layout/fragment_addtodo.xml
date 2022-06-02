@@ -186,7 +186,7 @@
               app:tbgMarkerColor="@color/purple_point" />
 
           <com.nex3z.togglebuttongroup.button.CircularToggle
-              android:id="@+id/tus"
+              android:id="@+id/tue"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:text="화"
