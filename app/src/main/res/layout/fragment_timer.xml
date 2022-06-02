@@ -34,12 +34,13 @@
             android:layout_width="358dp"
             android:layout_height="198dp"
             android:layout_marginTop="50dp"
-            android:onClick="onClick"
             android:background="@drawable/header_button"
+            android:onClick="onClick"
             app:layout_constraintBottom_toBottomOf="@+id/view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/view"></ImageButton>
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
         <TextView
             android:id="@+id/textView2"
@@ -47,7 +48,6 @@
             android:layout_height="57dp"
             android:layout_marginTop="50dp"
             android:layout_marginEnd="50dp"
-            android:fontFamily="@font/notosans"
             android:gravity="center"
             android:text="Start"
             android:textSize="40sp"
@@ -118,7 +118,8 @@
             android:layout_marginEnd="15dp"
             android:background="@drawable/ic_baseline_info_24"
             app:layout_constraintEnd_toEndOf="@+id/view"
-            app:layout_constraintTop_toTopOf="@+id/view"></ImageButton>
+            app:layout_constraintTop_toTopOf="@+id/view"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></ImageButton>
 
         <TextView
             android:id="@+id/textView6"
@@ -126,7 +127,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/notosans"
             android:text="타이머 선택"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -168,7 +168,8 @@
             app:layout_constraintEnd_toStartOf="@+id/timersettingbtn"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
         <ImageButton
             android:id="@+id/timersettingbtn"
@@ -178,7 +179,8 @@
             android:layout_marginEnd="36dp"
             android:background="@drawable/ic_baseline_more_vert_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view"></ImageButton>
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></ImageButton>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- TODO: Update blank fragment layout -->
