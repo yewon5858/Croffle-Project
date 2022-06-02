@@ -17,4 +17,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Croffle Project"
 include ':app'
-include ':sdk'
