@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
-                android:text="타이머추가"
+                android:text="타이머 추가"
                 android:paddingVertical="10dp"
                 android:textSize="16sp"></TextView>
 

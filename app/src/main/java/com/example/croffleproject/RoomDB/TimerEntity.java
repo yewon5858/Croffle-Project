@@ -17,7 +17,7 @@ public class TimerEntity {
     private String timer_name;
 
     @ColumnInfo(name = "SetTime")
-    private int set_time;
+    private String set_time;
 
     @ColumnInfo(name = "Repeat")
     private List<String> day;
@@ -39,11 +39,11 @@ public class TimerEntity {
         this.timer_name = n_timer_name;
     }
 
-    public int getSetTime() {
+    public String getSetTime() {
         return set_time;
     }
 
-    public void setSetTime(int n_set_time) {
+    public void setSetTime(String n_set_time) {
         this.set_time = n_set_time;
     }
 

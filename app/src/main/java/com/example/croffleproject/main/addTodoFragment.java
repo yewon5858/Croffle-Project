@@ -44,17 +44,13 @@ public class addTodoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        // View root = inflater.inflate(R.layout.fragment_addtodo, container, false);
-
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer").build();
-//        init();
-//        Log.e(weekCycleOn[0]+"","is weekCycleOn");
-        database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
-            //timers.toString();
 
+        database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
+            // timers.toString();
+            // Log.e(weekCycleOn[0]+"","is weekCycleOn");
             init();
 
         });
