@@ -4,21 +4,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
 import com.example.croffleproject.AnalyticsFragment;
 import com.example.croffleproject.R;
+import com.example.croffleproject.RoomDB.AppDatabase;
+
 import com.example.croffleproject.SettingFragment;
 import com.example.croffleproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
+
 public static Context mContext;
     public ActivityMainBinding activityMainBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +35,9 @@ public static Context mContext;
 
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
+
+        AppDatabase database = AppDatabase.getInstance(this);
+
         replaceFragment(new TimerFragment());
 
         activityMainBinding.bottomNav.setOnItemSelectedListener(item -> {
@@ -65,6 +74,5 @@ public static Context mContext;
         if(state) activityMainBinding.bottomNav.setVisibility(View.GONE);
         else activityMainBinding.bottomNav.setVisibility(View.VISIBLE);
     }
-
 
 }

@@ -48,16 +48,16 @@ public class addTodoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer")
-                .allowMainThreadQueries()
-                .build();
-
-        database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
-            // timers.toString();
-            // Log.e(weekCycleOn[0]+"","is weekCycleOn");
-            init();
-
-        });
+//        final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer")
+//                .allowMainThreadQueries()
+//                .build();
+//
+//        database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
+//            // timers.toString();
+//            // Log.e(weekCycleOn[0]+"","is weekCycleOn");
+//            init();
+//
+//        });
 
         //시간관련 입력
        String hour = binding.hourET.getText().toString();
@@ -75,7 +75,7 @@ public class addTodoFragment extends Fragment {
 //   //     else{
             String goalTime = hour+minute+second;
         binding.addButton.setOnClickListener(view -> {
-                database.timerTableDao().insert(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
+         //       database.timerTableDao().insert(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
                 for(int i =0;i<7;i++){
                     Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
                 }
