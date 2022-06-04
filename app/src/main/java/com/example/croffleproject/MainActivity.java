@@ -8,10 +8,7 @@ import androidx.room.Room;
 
 import android.os.Bundle;
 
-import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
-import com.example.croffleproject.RoomDB.SettingsEntity;
-import com.example.croffleproject.RoomDB.TimerEntity;
 import com.example.croffleproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
