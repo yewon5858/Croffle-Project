@@ -17,18 +17,14 @@ import com.example.croffleproject.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
+    private AppDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AppDatabase database = Room.databaseBuilder(this, AppDatabase.class,
-                "Mytime-db").allowMainThreadQueries().build();
-
-        database.timerDao().insert(new TimerEntity());
-        database.settingsDao().insert(new SettingsEntity());
-        database.analyticsDao().insert(new AnalyticsEntity());
+        database = AppDatabase.getInstance(this);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

@@ -38,6 +38,15 @@ public class AnalyticsEntity {
         this.maximum = LocalTime.now();
     }
 
+    public AnalyticsEntity(int id, LocalDate data, ArrayList<String> used, LocalTime total, LocalTime rest, LocalTime max) {
+        this.StId = id;
+        this.date = data;
+        this.used = used;
+        this.total = total;
+        this.rest = rest;
+        this.maximum = max;
+    }
+
     public int getStId() {
         return StId;
     }

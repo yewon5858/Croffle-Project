@@ -8,16 +8,18 @@ import androidx.room.Update;
 
 import java.util.List;
 
+import io.reactivex.Completable;
+
 @Dao
 public interface AnalyticsDao {
     @Query("SELECT * FROM AnalyticsTable")
     List<AnalyticsEntity> getAll();
 
     @Query("DELETE FROM AnalyticsTable")
-    void clearTable();
+    Completable clearTable();
 
     @Insert
-    void insert(AnalyticsEntity analyticsEntity);
+    Completable insert(AnalyticsEntity analyticsEntity);
 
     @Update
     void update(AnalyticsEntity analyticsEntity);

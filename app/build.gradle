@@ -44,6 +44,7 @@ android {
 dependencies {
     // Room
     implementation "androidx.room:room-runtime:2.4.2"
+    implementation "androidx.room:room-rxjava2:2.4.2"
     annotationProcessor "androidx.room:room-compiler:2.4.2"
 
     implementation 'androidx.appcompat:appcompat:1.4.0'
@@ -63,7 +64,7 @@ dependencies {
     // 차트 라이브러리 - MPAndroid
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
-    // dagger
-    implementation 'com.google.dagger:dagger:2.x'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.x'
+    // rxjava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.19'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
 }

@@ -4,10 +4,14 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Single;
 
 @Dao
 public interface SettingsDao {
@@ -15,14 +19,14 @@ public interface SettingsDao {
     LiveData<List<SettingsEntity>> getAll();
 
     @Query("DELETE FROM SettingsTable")
-    void clearTable();
+    Completable clearTable();
 
-    @Insert
-    void insert(SettingsEntity settingsEntity);
+    @Query("SELECT * FROM SettingsTable WHERE SettingId = :id")
+    Single<SettingsEntity> getTable(int id);
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    Single<Long> insert(SettingsEntity settingsEntity);
 
     @Update
-    void update(SettingsEntity settingsEntity);
-
-    @Delete
-    void delete(SettingsEntity settingsEntity);
+    Single<Integer> update(SettingsEntity settingsEntity);
 }

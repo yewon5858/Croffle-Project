@@ -31,6 +31,22 @@ public class SettingsEntity {
         this.sound = true;
     }
 
+    public SettingsEntity(int Sid, boolean saving, boolean notification, boolean vibration, boolean sound) {
+        this.Sid = Sid;
+        this.saving = saving;
+        this.notification = notification;
+        this.vibration = vibration;
+        this.sound = sound;
+    }
+
+    public SettingsEntity(boolean saving, boolean notification, boolean vibration, boolean sound) {
+        this.Sid = 0;
+        this.saving = saving;
+        this.notification = notification;
+        this.vibration = vibration;
+        this.sound = sound;
+    }
+
     public int getSid() {
         return Sid;
     }

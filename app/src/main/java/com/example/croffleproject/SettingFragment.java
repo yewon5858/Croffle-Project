@@ -1,12 +1,23 @@
 package com.example.croffleproject;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.room.Database;
+import androidx.room.Room;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
+
+import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.SettingsEntity;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +34,16 @@ public class SettingFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // id 불러올 변수
+    private Context Sct;
+    private Switch saving;
+    private Switch noti;
+    private Switch vibe;
+    private Switch sound;
+
+    private int PhoneId = 57;
+    private AppDatabase appDatabase;
 
     public SettingFragment() {
         // Required empty public constructor
@@ -58,7 +79,157 @@ public class SettingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_setting, container, false);
+
+        saving = v.findViewById(R.id.Power_mode);
+        noti = v.findViewById(R.id.notice);
+        vibe = v.findViewById(R.id.vibration);
+        sound = v.findViewById(R.id.sound);
+
+        Sct = container.getContext();
+        appDatabase = AppDatabase.getInstance(Sct);
+
+        appDatabase.settingsDao().insert(new SettingsEntity(
+                PhoneId, saving.isChecked(), noti.isChecked(), vibe.isChecked(), sound.isChecked()))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+
+
+
+        saving.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setSaving(true);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                } else {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setSaving(false);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                }
+            }
+        });
+
+        noti.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setNotification(true);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                } else {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setNotification(false);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                }
+            }
+        });
+
+        vibe.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setVibration(true);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                } else {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setVibration(false);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                }
+            }
+        });
+
+        sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setSound(true);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                } else {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                settingsEntity.setSound(false);
+                                appDatabase.settingsDao().update(settingsEntity)
+                                        .subscribeOn(Schedulers.io())
+                                        .observeOn(AndroidSchedulers.mainThread())
+                                        .subscribe();
+                            })
+                            .doOnError(throwable -> throwable.toString())
+                            .subscribe();
+                }
+            }
+        });
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_setting, container, false);
+        return v;
     }
 }

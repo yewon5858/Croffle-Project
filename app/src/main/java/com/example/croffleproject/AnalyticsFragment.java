@@ -7,14 +7,18 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.croffleproject.MainActivity;
 import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.Converters;
 import com.example.croffleproject.RoomDB.SettingsEntity;
 import com.example.croffleproject.RoomDB.TimerEntity;
 import com.github.mikephil.charting.charts.PieChart;
@@ -24,7 +28,12 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.example.croffleproject.Theme.GraphColor;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +50,18 @@ public class AnalyticsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    // id 불러올 변수
+    private Context Act;
+    private TextView date1;
+    private TextView date2;
+    private TextView date3;
+    private TextView date4;
+    private TextView date5;
+    private TextView date6;
+    private TextView date7;
+
+    private AppDatabase appDatabase;
 
     public AnalyticsFragment() {
         // Required empty public constructor
@@ -77,6 +98,27 @@ public class AnalyticsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_analytics, container, false);
+
+        date1 = v.findViewById(R.id.date_1);
+        date1.setText(LocalDate.now().getDayOfMonth());
+
+        date2 = v.findViewById(R.id.date_2);
+        date2.setText(LocalDate.now().getDayOfMonth());
+
+        date3 = v.findViewById(R.id.date_3);
+        date3.setText(LocalDate.now().getDayOfMonth());
+
+        date4 = v.findViewById(R.id.date_4);
+        date4.setText(LocalDate.now().getDayOfMonth());
+
+        date5 = v.findViewById(R.id.date_5);
+        date5.setText(LocalDate.now().getDayOfMonth());
+
+        date6 = v.findViewById(R.id.date_6);
+        date6.setText(LocalDate.now().getDayOfMonth());
+
+        date7 = v.findViewById(R.id.date_7);
+        date7.setText(LocalDate.now().getDayOfMonth());
 
         PieChart pieChart = (PieChart) v.findViewById(R.id.PieChart);
 
