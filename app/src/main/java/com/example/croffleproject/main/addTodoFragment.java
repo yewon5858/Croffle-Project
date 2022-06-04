@@ -33,6 +33,8 @@ import java.util.Set;
 // */
 public class addTodoFragment extends Fragment {
 
+    MainActivity mainActivity = (MainActivity)MainActivity.mContext;
+
     private static final String LOG_TAG = addTodoFragment.class.getSimpleName();
     private FragmentAddtodoBinding binding = null;
     boolean[] weekCycleOn = new boolean[7];
@@ -46,7 +48,9 @@ public class addTodoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer").build();
+        final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer")
+                .allowMainThreadQueries()
+                .build();
 
         database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
             // timers.toString();
@@ -70,14 +74,22 @@ public class addTodoFragment extends Fragment {
 //     //   }
 //   //     else{
             String goalTime = hour+minute+second;
-            binding.addButton.setOnClickListener(view -> {
-                new InsertAsyncTask(database.timerTableDao())
-                        .execute(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
+        binding.addButton.setOnClickListener(view -> {
+                database.timerTableDao().insert(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
                 for(int i =0;i<7;i++){
                     Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
                 }
-                //mResultTextView.setText(getAllString(db)); // 화면 갱신
             });
+
+//asnc 사용
+//            binding.addButton.setOnClickListener(view -> {
+//                new InsertAsyncTask(database.timerTableDao())
+//                        .execute(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
+//                for(int i =0;i<7;i++){
+//                    Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
+//                }
+//                //mResultTextView.setText(getAllString(db)); // 화면 갱신
+//            });
 
    //     }
 
@@ -87,42 +99,37 @@ public class addTodoFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HideBottomNavi(true);
+        mainActivity.HideBottomNavi(true);
         Log.e("hide","is hide");
 
     }
     @Override
     public void onDestroy() {
         super.onDestroy();
-        HideBottomNavi(false);
+        mainActivity.HideBottomNavi(false);
         Log.e("show","is show");
     }
 
-    public void HideBottomNavi(boolean state){// bottomnav 임시로 숨기는 함수
-        BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottomNav);
-        if(state) bottomNavigation.setVisibility(View.GONE);
-        else bottomNavigation.setVisibility(View.VISIBLE);
-    }
 
-    //AsyncTask로 데이터를 불러옴
-    private static class InsertAsyncTask extends AsyncTask<TimerTableEntity,Void,Void> {
-        private TimerTableDao timerTableDao;
-
-        public InsertAsyncTask(TimerTableDao timerTableDao) {
-            this.timerTableDao = timerTableDao;
-        }
-
-        @Override
-        protected Void doInBackground(TimerTableEntity... timers) {
-            for(int i=0; i< timers.length; i++) {
-                timerTableDao.insert(timers[i]);
-                Log.e("is add",timers[0].toString());
-            }
-//            timerTableDao.insert(timers[0]);
-//            Log.e("is add",timers[0].toString());
-            return null;
-        }
-    }
+//    //AsyncTask로 데이터를 불러옴
+//    private static class InsertAsyncTask extends AsyncTask<TimerTableEntity,Void,Void> {
+//        private TimerTableDao timerTableDao;
+//
+//        public InsertAsyncTask(TimerTableDao timerTableDao) {
+//            this.timerTableDao = timerTableDao;
+//        }
+//
+//        @Override
+//        protected Void doInBackground(TimerTableEntity... timers) {
+//            for(int i=0; i< timers.length; i++) {
+//                timerTableDao.insert(timers[i]);
+//                Log.e("is add",timers[0].toString());
+//            }
+////            timerTableDao.insert(timers[0]);
+////            Log.e("is add",timers[0].toString());
+//            return null;
+//        }
+//    }
     // 다중 선택 토글의 내용 확인
     private void init() {
         MultiSelectToggleGroup multi = null;
@@ -180,44 +187,5 @@ public class addTodoFragment extends Fragment {
                 }
         });
     }
-
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-
-
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment addTodoFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static addTodoFragment newInstance(String param1, String param2) {
-//        addTodoFragment fragment = new addTodoFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-
 
 }

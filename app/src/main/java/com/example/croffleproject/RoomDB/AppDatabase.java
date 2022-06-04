@@ -9,4 +9,6 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract engagedTimeDao engagedTimeDao();
     public abstract measureTimeDao measureTimeDao();
     public abstract TimerTableDao timerTableDao();
+
+
 }

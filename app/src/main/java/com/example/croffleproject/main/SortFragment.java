@@ -15,6 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class SortFragment extends Fragment {
 
+    MainActivity mainActivity = (MainActivity)MainActivity.mContext;
     FragmentSortBinding sortBinding = null;
     public SortFragment() {
         // Required empty public constructor
@@ -22,14 +23,14 @@ public class SortFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HideBottomNavi(true);
+        mainActivity.HideBottomNavi(true);
         Log.e("hide","is hide");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        HideBottomNavi(false);
+        mainActivity.HideBottomNavi(false);
         Log.e("show","is show");
     }
 
@@ -42,10 +43,6 @@ public class SortFragment extends Fragment {
         return root;
     }
 
-    public void HideBottomNavi(boolean state){// bottomnav 임시로 숨기는 함수
-        BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottomNav);
-        if(state) bottomNavigation.setVisibility(View.GONE);
-        else bottomNavigation.setVisibility(View.VISIBLE);
-    }
+
 
 }

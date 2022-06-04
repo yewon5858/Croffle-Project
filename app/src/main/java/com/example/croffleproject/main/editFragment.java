@@ -10,13 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.croffleproject.R;
+import com.example.croffleproject.databinding.ActivityMainBinding;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
 import com.example.croffleproject.databinding.FragmentEditBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 
 public class editFragment extends Fragment {
-
+    MainActivity mainActivity = (MainActivity)MainActivity.mContext;
     FragmentEditBinding editBinding = null;
     public editFragment() {
         // Required empty public constructor
@@ -28,29 +29,25 @@ public class editFragment extends Fragment {
         // Inflate the layout for this fragment
         editBinding = FragmentEditBinding.inflate(inflater, container, false);
         View root = editBinding.getRoot();
-
+        mainActivity.HideBottomNavi(true);
         return root;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HideBottomNavi(true);
+        mainActivity.HideBottomNavi(true);
         Log.e("hide","is hide");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        HideBottomNavi(false);
+        mainActivity.HideBottomNavi(false);
         Log.e("show","is show");
     }
 
-    public void HideBottomNavi(boolean state){// bottomnav 임시로 숨기는 함수
-        BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottomNav);
-        if(state) bottomNavigation.setVisibility(View.GONE);
-        else bottomNavigation.setVisibility(View.VISIBLE);
-    }
+
 
 
 
