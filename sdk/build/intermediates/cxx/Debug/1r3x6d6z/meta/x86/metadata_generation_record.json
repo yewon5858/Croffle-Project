@@ -1,0 +1,56 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 21 min SDK version: x86",
+    "file_": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/Debug/6k17264f/meta/x86_64/metadata_generation_record.json
+    "memoizedHashCode": 1691219110
+=======
+    "memoizedHashCode": -248257215
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/Debug/1r3x6d6z/meta/x86/metadata_generation_record.json
+  },
+  {
+    "level_": 0,
+    "message_": "JSON \u0027/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx/Debug/1r3x6d6z/x86/android_gradle_build.json\u0027 was up-to-date",
+    "file_": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/Debug/6k17264f/meta/x86_64/metadata_generation_record.json
+    "memoizedHashCode": 168290851
+=======
+    "memoizedHashCode": -1200041539
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/Debug/1r3x6d6z/meta/x86/metadata_generation_record.json
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/libcxx_helper/CMakeLists.txt",
+    "tag_": "debug|x86",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/Debug/6k17264f/meta/x86_64/metadata_generation_record.json
+    "memoizedHashCode": 2116436002
+=======
+    "memoizedHashCode": -456368050
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/Debug/1r3x6d6z/meta/x86/metadata_generation_record.json
+  }
+]

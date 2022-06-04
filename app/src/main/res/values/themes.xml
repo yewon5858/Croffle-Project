@@ -22,5 +22,13 @@
         <item name="windowNoTitle">true</item>
 
     </style>
+    
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slid_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slid_out_bottom</item>
+    </style>
+    <style name="DialogStyle">
+        <item name="background">@drawable/dialog_bg</item>
+    </style>
 
 </resources>

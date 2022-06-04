@@ -1,5 +1,6 @@
 package com.example.croffleproject.RoomDB;
 
+
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -12,9 +13,13 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 // version = 1: 세팅, 통계, 타이머
 // version = 2: Analytics Dao 추가
 @Database(entities = { SettingsEntity.class, AnalyticsEntity.class,
-        TimerEntity.class}, version = 2)
+        TimerEntity.class,engagedTimeEntity.class, measureTimeEntity.class
+        , TimerTableEntity.class}, version = 2)
 @TypeConverters({Converters.class})
 public abstract class  AppDatabase extends RoomDatabase{
+    public abstract engagedTimeDao engagedTimeDao();
+    public abstract measureTimeDao measureTimeDao();
+    public abstract TimerTableDao timerTableDao();
     public abstract SettingsDao settingsDao();
     public abstract TimerDao timerDao();
     public abstract AnalyticsDao analyticsDao();

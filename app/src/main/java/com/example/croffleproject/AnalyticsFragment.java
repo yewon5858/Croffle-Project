@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.croffleproject.MainActivity;
+import com.example.croffleproject.main.MainActivity;
 import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
 import com.example.croffleproject.RoomDB.Converters;

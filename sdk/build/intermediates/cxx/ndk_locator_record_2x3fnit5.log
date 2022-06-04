@@ -1,0 +1,92 @@
+[
+  {
+    "level_": 0,
+    "message_": "android.ndkVersion from module build.gradle is [21.4.7075529]",
+    "file_": "",
+    "tag_": "",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/ndk_locator_record_39506f46.log
+    "memoizedHashCode": -1939073332
+=======
+    "memoizedHashCode": -1058523240
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/ndk_locator_record_2x3fnit5.log
+  },
+  {
+    "level_": 0,
+    "message_": "android.ndkPath from module build.gradle is not set",
+    "file_": "",
+    "tag_": "",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/ndk_locator_record_39506f46.log
+    "memoizedHashCode": -8261606
+=======
+    "memoizedHashCode": 872288486
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/ndk_locator_record_2x3fnit5.log
+  },
+  {
+    "level_": 0,
+    "message_": "ndk.dir in local.properties is not set",
+    "file_": "",
+    "tag_": "",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/ndk_locator_record_39506f46.log
+    "memoizedHashCode": 696199587
+=======
+    "memoizedHashCode": 1576749679
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/ndk_locator_record_2x3fnit5.log
+  },
+  {
+    "level_": 0,
+    "message_": "Not considering ANDROID_NDK_HOME because support was removed after deprecation period.",
+    "file_": "",
+    "tag_": "",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/ndk_locator_record_39506f46.log
+    "memoizedHashCode": -1735953639
+=======
+    "memoizedHashCode": -855403547
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/ndk_locator_record_2x3fnit5.log
+  },
+  {
+    "level_": 0,
+    "message_": "sdkFolder is /Users/gim-yewon/Library/Android/sdk",
+    "file_": "",
+    "tag_": "",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+<<<<<<< HEAD:sdk/build/intermediates/cxx/ndk_locator_record_39506f46.log
+    "memoizedHashCode": -1843534162
+=======
+    "memoizedHashCode": -1550159040
+>>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:sdk/build/intermediates/cxx/ndk_locator_record_2x3fnit5.log
+  }
+]

@@ -46,11 +46,13 @@ public class TimerEntity {
         this.timer_name = n_timer_name;
     }
 
+
     public int getSet_time() {
         return set_time;
     }
 
     public void setSet_time(int n_set_time) {
+
         this.set_time = n_set_time;
     }
 
