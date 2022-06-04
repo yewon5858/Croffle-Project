@@ -99,27 +99,6 @@ public class AnalyticsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_analytics, container, false);
 
-        date1 = v.findViewById(R.id.date_1);
-        date1.setText(LocalDate.now().getDayOfMonth());
-
-        date2 = v.findViewById(R.id.date_2);
-        date2.setText(LocalDate.now().getDayOfMonth());
-
-        date3 = v.findViewById(R.id.date_3);
-        date3.setText(LocalDate.now().getDayOfMonth());
-
-        date4 = v.findViewById(R.id.date_4);
-        date4.setText(LocalDate.now().getDayOfMonth());
-
-        date5 = v.findViewById(R.id.date_5);
-        date5.setText(LocalDate.now().getDayOfMonth());
-
-        date6 = v.findViewById(R.id.date_6);
-        date6.setText(LocalDate.now().getDayOfMonth());
-
-        date7 = v.findViewById(R.id.date_7);
-        date7.setText(LocalDate.now().getDayOfMonth());
-
         PieChart pieChart = (PieChart) v.findViewById(R.id.PieChart);
 
         ArrayList<PieEntry> time = new ArrayList<>();
