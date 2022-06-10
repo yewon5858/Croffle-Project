@@ -67,7 +67,7 @@ public class AnalyticsFragment extends Fragment {
 
     private AppDatabase appDatabase;
 
-    private int starting = 0;
+    private int starting = 100;
 
     public AnalyticsFragment() {
         // Required empty public constructor
@@ -152,7 +152,6 @@ public class AnalyticsFragment extends Fragment {
                 LocalTime.of(0, 0), LocalTime.of(0, 0)))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnError(Throwable -> Throwable.toString())
                 .subscribe();
 
         pieChart = v.findViewById(R.id.PieChart);
@@ -228,7 +227,27 @@ public class AnalyticsFragment extends Fragment {
             }
         });
 
+
+        appDatabase.analyticsDao().getTable(starting)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess(analyticsEntity -> {
+                    max.setText(String.valueOf(analyticsEntity.getTotal().getHour()) + "시 "
+                            + String.valueOf(analyticsEntity.getTotal().getMinute()) + "분");
+                    rest.setText(String.valueOf(analyticsEntity.getRest().getHour()) + "시 "
+                            + String.valueOf(analyticsEntity.getRest().getMinute()) + "분");
+                    highest.setText(String.valueOf(analyticsEntity.getMaximum().getHour()) + "시 "
+                            + String.valueOf(analyticsEntity.getMaximum().getMinute()) + "분");
+
+                })
+                .subscribe();
+
         // Inflate the layout for this fragment
         return v;
+    }
+
+    public void CreateGraph() {
+        Act = getContext();
+        appDatabase = AppDatabase.getInstance(Act);
     }
 }
