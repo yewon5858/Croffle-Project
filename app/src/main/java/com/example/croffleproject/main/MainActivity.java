@@ -11,16 +11,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-<<<<<<< HEAD:app/src/main/java/com/example/croffleproject/MainActivity.java
 import com.example.croffleproject.RoomDB.AppDatabase;
-=======
 
 import com.example.croffleproject.AnalyticsFragment;
 import com.example.croffleproject.R;
 import com.example.croffleproject.RoomDB.AppDatabase;
 
 import com.example.croffleproject.SettingFragment;
->>>>>>> 63533bd32e5de8ed5bc51d7d49c3a7bedd441dd1:app/src/main/java/com/example/croffleproject/main/MainActivity.java
 import com.example.croffleproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

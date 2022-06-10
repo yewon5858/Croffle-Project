@@ -9,6 +9,7 @@ import androidx.room.Update;
 import java.util.List;
 
 import io.reactivex.Completable;
+import io.reactivex.Single;
 
 @Dao
 public interface AnalyticsDao {
@@ -19,11 +20,14 @@ public interface AnalyticsDao {
     Completable clearTable();
 
     @Insert
-    Completable insert(AnalyticsEntity analyticsEntity);
+    Single<Long> insert(AnalyticsEntity analyticsEntity);
 
     @Update
-    void update(AnalyticsEntity analyticsEntity);
+    Single<Integer> update(AnalyticsEntity analyticsEntity);
 
     @Delete
-    void delete(AnalyticsEntity analyticsEntity);
+    Completable delete(AnalyticsEntity analyticsEntity);
+
+    @Query("SELECT * FROM AnalyticsTable WHERE AnalyticsId = :id ")
+    Single<AnalyticsEntity> getTable(int id);
 }

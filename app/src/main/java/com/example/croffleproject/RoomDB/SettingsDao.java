@@ -21,7 +21,7 @@ public interface SettingsDao {
     @Query("DELETE FROM SettingsTable")
     Completable clearTable();
 
-    @Query("SELECT * FROM SettingsTable WHERE SettingId = :id")
+    @Query("SELECT * FROM SettingsTable WHERE SettingId = :id ")
     Single<SettingsEntity> getTable(int id);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

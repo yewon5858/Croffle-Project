@@ -10,6 +10,9 @@ import androidx.room.Update;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Completable;
+import io.reactivex.Single;
+
 @Dao
 public interface TimerDao {
     @Query("SELECT * FROM TimerTable")
@@ -19,20 +22,11 @@ public interface TimerDao {
     void clearTable();
 
     @Insert
-    void insert(TimerEntity timerEntity);
+    Single<Long> insert(TimerEntity timerEntity);
 
     @Update
-    void update(TimerEntity timerEntity);
+    Single<Integer> update(TimerEntity timerEntity);
 
     @Delete
-    void delete(TimerEntity timerEntity);
-
-    @Query("SELECT TimerName FROM timertable")
-    String get_tName();
-
-    @Query("SELECT SetTime FROM timertable")
-    int get_sTime();
-
-    @Query("SELECT Repeat FROM timertable")
-    String getRepeat();
+    Completable delete(TimerEntity timerEntity);
 }

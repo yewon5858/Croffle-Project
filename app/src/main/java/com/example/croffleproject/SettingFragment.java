@@ -88,11 +88,22 @@ public class SettingFragment extends Fragment {
 
         Sct = container.getContext();
         appDatabase = AppDatabase.getInstance(Sct);
-
         appDatabase.settingsDao().insert(new SettingsEntity(
                 PhoneId, saving.isChecked(), noti.isChecked(), vibe.isChecked(), sound.isChecked()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnSuccess(aLong -> {
+                    appDatabase.settingsDao().getTable(PhoneId)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .doOnSuccess(settingsEntity -> {
+                                saving.setChecked(settingsEntity.getSaving());
+                                noti.setChecked(settingsEntity.getNotification());
+                                vibe.setChecked(settingsEntity.getVibration());
+                                sound.setChecked(settingsEntity.getSound());
+                            })
+                            .subscribe();
+                })
                 .subscribe();
 
 
