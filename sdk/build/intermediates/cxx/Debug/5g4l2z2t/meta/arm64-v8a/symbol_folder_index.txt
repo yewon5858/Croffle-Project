@@ -1,1 +1,0 @@
-/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t/obj/arm64-v8a
