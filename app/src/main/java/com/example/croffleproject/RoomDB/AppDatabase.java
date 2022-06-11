@@ -12,9 +12,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 // version = 1: 세팅, 통계, 타이머
 // version = 2: Analytics Dao 추가
+// version = 3: 모든 entity 병합
 @Database(entities = { SettingsEntity.class, AnalyticsEntity.class,
         TimerEntity.class,engagedTimeEntity.class, measureTimeEntity.class
-        , TimerTableEntity.class}, version = 2)
+        , TimerTableEntity.class}, version = 4)
 @TypeConverters({Converters.class})
 public abstract class  AppDatabase extends RoomDatabase{
     public abstract engagedTimeDao engagedTimeDao();
