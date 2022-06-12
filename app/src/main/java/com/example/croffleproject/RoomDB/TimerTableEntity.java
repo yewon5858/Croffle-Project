@@ -17,20 +17,22 @@ public class TimerTableEntity {
         this.goalTime = goalTime;
     }
 
-    public int getId() {
-            return id_todo;
-        }
-    public void setId(int id) {
+
+    public int getId_todo() {
+        return id_todo;
+    }
+
+    public void setId_todo(int id_todo) {
         this.id_todo = id_todo;
     }
 
-    public String getTitle() {
-            return todoTitle;
-        }
+    public void setTodoTitle(String todoTitle) {
+        this.todoTitle = todoTitle;
+    }
 
-    public void setTitle(String title) {
-            this.todoTitle = title;
-        }
+    public String getTodoTitle() {
+        return todoTitle;
+    }
 
     public String getGoalTime() {
         return goalTime;

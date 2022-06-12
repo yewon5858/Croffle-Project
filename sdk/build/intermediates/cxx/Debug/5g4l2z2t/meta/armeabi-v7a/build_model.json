@@ -6,9 +6,9 @@
     "deprecated": false,
     "default": true
   },
-  "cxxBuildFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx/Debug/5g4l2z2t/armeabi-v7a",
-  "soFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t/obj/armeabi-v7a",
-  "soRepublishFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cmake/debug/obj/armeabi-v7a",
+  "cxxBuildFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\.cxx\\Debug\\6k17264f\\armeabi-v7a",
+  "soFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx\\Debug\\6k17264f\\obj\\armeabi-v7a",
+  "soRepublishFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cmake\\debug\\obj\\armeabi-v7a",
   "abiPlatformVersion": 21,
   "cmake": {
     "effectiveConfiguration": {
@@ -23,10 +23,10 @@
     "cFlagsList": [],
     "cppFlagsList": [],
     "variantName": "debug",
-    "soFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t/obj",
-    "soRepublishFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cmake/debug/obj",
-    "cxxBuildFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx/Debug/5g4l2z2t",
-    "intermediatesFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t",
+    "soFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx\\Debug\\6k17264f\\obj",
+    "soRepublishFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cmake\\debug\\obj",
+    "cxxBuildFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\.cxx\\Debug\\6k17264f",
+    "intermediatesFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx\\Debug\\6k17264f",
     "isDebuggableEnabled": true,
     "validAbiList": [
       "ARMEABI_V7A",
@@ -40,15 +40,15 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx",
-      "intermediatesBaseFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates",
-      "intermediatesFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx",
+      "cxxFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\.cxx",
+      "intermediatesBaseFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates",
+      "intermediatesFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx",
       "gradleModulePathName": ":sdk",
-      "moduleRootFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk",
-      "moduleBuildFile": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build.gradle",
-      "makeFile": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/libcxx_helper/CMakeLists.txt",
+      "moduleRootFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk",
+      "moduleBuildFile": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\build.gradle",
+      "makeFile": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\libcxx_helper\\CMakeLists.txt",
       "buildSystem": "CMAKE",
-      "ndkFolder": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529",
+      "ndkFolder": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
       "ndkVersion": "21.4.7075529",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
@@ -111,27 +111,27 @@
           "default": true
         }
       ],
-      "cmakeToolchainFile": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
+      "cmakeToolchainFile": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
       "cmake": {
         "isValidCmakeAvailable": true,
-        "cmakeExe": "/Users/gim-yewon/Library/Android/sdk/cmake/3.18.1/bin/cmake",
+        "cmakeExe": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\cmake.exe",
         "minimumCmakeVersion": "3.18.1",
-        "ninjaExe": "/Users/gim-yewon/Library/Android/sdk/cmake/3.18.1/bin/ninja"
+        "ninjaExe": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe"
       },
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
-          "ARM64_V8A": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
-          "X86": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
-          "X86_64": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
+          "ARMEABI_V7A": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project",
-        "sdkFolder": "/Users/gim-yewon/Library/Android/sdk",
+        "rootBuildGradleFolder": "C:\\Users\\tlsdn\\Croffle-Project",
+        "sdkFolder": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
@@ -146,27 +146,27 @@
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx/Debug/5g4l2z2t/prefab/armeabi-v7a",
+  "prefabFolder": "C:\\Users\\tlsdn\\Croffle-Project\\sdk\\.cxx\\Debug\\6k17264f\\prefab\\armeabi-v7a",
   "isActiveAbi": true,
-  "fullConfigurationHash": "5g4l2z2t4u4s3f4o13282648685mj6s933t5o436x5b2l5k1i6k245y2t516u",
+  "fullConfigurationHash": "6k17264fto2t21o3ry183q6a1z2331275h2l3i5sw4ya4y6j2v432nyv",
   "configurationArguments": [
-    "-H/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/libcxx_helper",
+    "-HC:\\Users\\tlsdn\\Croffle-Project\\sdk\\libcxx_helper",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_SYSTEM_VERSION\u003d21",
     "-DANDROID_PLATFORM\u003dandroid-21",
     "-DANDROID_ABI\u003darmeabi-v7a",
     "-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a",
-    "-DANDROID_NDK\u003d/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529",
-    "-DCMAKE_ANDROID_NDK\u003d/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529",
-    "-DCMAKE_TOOLCHAIN_FILE\u003d/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake",
-    "-DCMAKE_MAKE_PROGRAM\u003d/Users/gim-yewon/Library/Android/sdk/cmake/3.18.1/bin/ninja",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t/obj/armeabi-v7a",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/build/intermediates/cxx/Debug/5g4l2z2t/obj/armeabi-v7a",
+    "-DANDROID_NDK\u003dC:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx\\Debug\\6k17264f\\obj\\armeabi-v7a",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\tlsdn\\Croffle-Project\\sdk\\build\\intermediates\\cxx\\Debug\\6k17264f\\obj\\armeabi-v7a",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
-    "-B/Users/gim-yewon/StudioProjects/Croffle-Project/sdk/.cxx/Debug/5g4l2z2t/armeabi-v7a",
+    "-BC:\\Users\\tlsdn\\Croffle-Project\\sdk\\.cxx\\Debug\\6k17264f\\armeabi-v7a",
     "-GNinja",
     "-DANDROID_STL\u003dc++_shared"
   ],
-  "stlLibraryFile": "/Users/gim-yewon/Library/Android/sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so"
+  "stlLibraryFile": "C:\\Users\\tlsdn\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so"
 }

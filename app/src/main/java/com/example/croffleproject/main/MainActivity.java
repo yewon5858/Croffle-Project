@@ -4,29 +4,44 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import com.example.croffleproject.RoomDB.AppDatabase;
 
 import com.example.croffleproject.AnalyticsFragment;
 import com.example.croffleproject.R;
+import com.example.croffleproject.RoomDB.AppDatabase;
+
 import com.example.croffleproject.SettingFragment;
 import com.example.croffleproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+
+    public static Context mContext;
+    public ActivityMainBinding activityMainBinding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //main Context 받기
+        mContext = this;
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
+
+        AppDatabase database = AppDatabase.getInstance(this);
+
         replaceFragment(new TimerFragment());
 
-        binding.bottomNav.setOnItemSelectedListener(item -> {
+        activityMainBinding.bottomNav.setOnItemSelectedListener(item -> {
 
             switch (item.getItemId()){
                 case R.id.item_timer:
@@ -42,6 +57,12 @@ public class MainActivity extends AppCompatActivity {
             return true;
         });
     }
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        HideBottomNavi(false);
+        Log.e("show","is show");
+    }
     public void replaceFragment(Fragment fragment){ //fragment를 변경하는 함수
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -51,10 +72,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void HideBottomNavi(boolean state){
-
-        if(state) binding.bottomNav.setVisibility(View.GONE);
-        else binding.bottomNav.setVisibility(View.VISIBLE);
+        if(state) activityMainBinding.bottomNav.setVisibility(View.GONE);
+        else activityMainBinding.bottomNav.setVisibility(View.VISIBLE);
     }
-
 
 }

@@ -1,16 +1,38 @@
 package com.example.croffleproject.main;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.room.Room;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import androidx.fragment.app.Fragment;
+import android.widget.ToggleButton;
 
 import com.example.croffleproject.R;
+import com.example.croffleproject.RoomDB.AnalyticsEntity;
+import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.TimerEntity;
+import com.example.croffleproject.RoomDB.TimerTableDao;
+import com.example.croffleproject.RoomDB.TimerTableEntity;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
+import com.example.croffleproject.databinding.TimersettingbottomsheetBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
+import com.nex3z.togglebuttongroup.button.CircularToggle;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 //
 ///**
@@ -20,7 +42,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 // */
 public class addTodoFragment extends Fragment {
 
-    private FragmentAddtodoBinding binding;
+    MainActivity mainActivity = (MainActivity)MainActivity.mContext;
+    private static final String LOG_TAG = addTodoFragment.class.getSimpleName();
+    private FragmentAddtodoBinding binding = null;
+    Context context;
+    AppDatabase appDatabase;
+    String title;
+    String hour;
+    String minute;
+    String second;
+    String goalTime;
+    boolean[] weekCycleOn = new boolean[7];
+    ArrayList<String> repeat = new ArrayList<>();
 
     public addTodoFragment() {
         // Required empty public constructor
@@ -28,80 +61,106 @@ public class addTodoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        // View root = inflater.inflate(R.layout.fragment_addtodo, container, false);
-
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
-        View view = binding.getRoot();
+        View root = binding.getRoot();
 
-        return view;
+        init();
+
+        context = container.getContext();
+        appDatabase = AppDatabase.getInstance(context);
+
+
+        binding.addButton.setOnClickListener(view -> {
+            for(int i = 0 ; i< weekCycleOn.length;i++){
+                repeat.add(weekCycleOn[i]+"");
+            }
+            for(int i =0;i<7;i++){
+                Log.e(repeat+", "+weekCycleOn[i]+", "+i,"is weekCycleOn");
+            }
+            title = binding.timerTitle.getText().toString();
+            //시간관련 입력
+            hour = binding.hourET.getText().toString();
+            minute = binding.minuteET.getText().toString();
+            second = binding.secondET.getText().toString();
+            goalTime = hour+minute+second;
+
+            appDatabase.timerDao().insert(new TimerEntity(
+                    title,goalTime,repeat))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnError(Throwable->Throwable.toString())
+                    .subscribe();
+        });
+
+        return root;
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        HideBottomNavi(true);
+        mainActivity.HideBottomNavi(true);
         Log.e("hide","is hide");
 
-      //  Canceladd();
     }
     @Override
     public void onDestroy() {
         super.onDestroy();
-        HideBottomNavi(false);
-        //Canceladd();
+        mainActivity.HideBottomNavi(false);
         Log.e("show","is show");
     }
 
-    public void HideBottomNavi(boolean state){
+    // 다중 선택 토글의 내용 확인
+    private void init() {
+        MultiSelectToggleGroup multi = null;
+        multi = binding.groupWeekdays.findViewById(R.id.group_weekdays);
+        CircularToggle sun = multi.findViewById(R.id.sun);
+        CircularToggle mon = multi.findViewById(R.id.mon);
+        CircularToggle tue = multi.findViewById(R.id.tue);
+        CircularToggle wen = multi.findViewById(R.id.wen);
+        CircularToggle thu = multi.findViewById(R.id.thu);
+        CircularToggle fri = multi.findViewById(R.id.fri);
+        CircularToggle sat = multi.findViewById(R.id.sat);
 
-        BottomNavigationView bottomNavigation = getActivity().findViewById(R.id.bottomNav);
-        if(state) bottomNavigation.setVisibility(View.GONE);
-        else bottomNavigation.setVisibility(View.VISIBLE);
+
+
+        multi.setOnCheckedChangeListener(new MultiSelectToggleGroup.OnCheckedStateChangeListener() {
+
+            @Override
+            public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
+                // Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds());
+
+                if(checkedId == sun.getId() && isChecked){
+                    weekCycleOn[0] = true;
+                    Log.e("","Checked sun!!!");
+                }
+                if(checkedId == mon.getId() && isChecked) {
+                    weekCycleOn[1] = true;
+                    Log.e("", "Checked mon!!!");
+                }
+                if (checkedId == tue.getId() && isChecked) {
+                    weekCycleOn[2] = true;
+                    Log.e("", "Checked tue!!!");
+                }
+                if (checkedId == wen.getId() && isChecked) {
+                    weekCycleOn[3] = true;
+                    Log.e("", "Checked wen!!!");
+                }
+
+                if (checkedId == thu.getId() && isChecked) {
+                    weekCycleOn[4] = true;
+                    Log.e("", "Checked thu!!!");
+                }
+                if (checkedId == fri.getId() && isChecked) {
+                    weekCycleOn[5] = true;
+                    Log.e("", "Checked sat!!!");
+                }
+
+                if (checkedId == sat.getId() && isChecked) {
+                    weekCycleOn[6] = true;
+                    Log.e("", "Checked sat!!!");
+                }
+
+            }
+        });
     }
-//    private void Canceladd() {
-//        binding.cancelBtn.setOnClickListener(view -> {
-//            Intent intent = new Intent(getActivity(),MainActivity.class);
-//            startActivity(intent);
-//
-//        });
-//    }
-//    // TODO: Rename parameter arguments, choose names that match
-//    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-//    private static final String ARG_PARAM1 = "param1";
-//    private static final String ARG_PARAM2 = "param2";
-//
-//    // TODO: Rename and change types of parameters
-//    private String mParam1;
-//    private String mParam2;
-
-
-//
-//    /**
-//     * Use this factory method to create a new instance of
-//     * this fragment using the provided parameters.
-//     *
-//     * @param param1 Parameter 1.
-//     * @param param2 Parameter 2.
-//     * @return A new instance of fragment addTodoFragment.
-//     */
-//    // TODO: Rename and change types and number of parameters
-//    public static addTodoFragment newInstance(String param1, String param2) {
-//        addTodoFragment fragment = new addTodoFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
-//
-//    @Override
-//    public void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        if (getArguments() != null) {
-//            mParam1 = getArguments().getString(ARG_PARAM1);
-//            mParam2 = getArguments().getString(ARG_PARAM2);
-//        }
-//    }
-
 
 }

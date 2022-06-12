@@ -7,10 +7,14 @@ import androidx.room.PrimaryKey;
 public class engagedTimeEntity {
     @PrimaryKey(autoGenerate = true) // id 값이 하나씩 자동으로 증가(autoGenerate = true)
     private int E_id; // sql 기반의 데이터 베이스이기 때문에 Primary Key 값을 id로 받아옴
-    private int E_todoTitle;
-    private String E_date;
+    private int E_todoTitle; // sql 기반의 데이터 베이스이기 때문에 Primary Key 값을 id로 받아옴
+    private String E_date; // 일정의 이름을 받아옴
     private String E_startTime;
     private String E_endTime;
+
+    public engagedTimeEntity() {
+
+    }
 
     public engagedTimeEntity(int e_todoTitle, String e_date, String e_startTime, String e_endTime) {
         E_todoTitle = e_todoTitle;
