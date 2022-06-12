@@ -1,18 +1,14 @@
 package com.example.croffleproject.main;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.fragment.app.Fragment;
+
 import com.example.croffleproject.R;
-import com.example.croffleproject.databinding.ActivityMainBinding;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
