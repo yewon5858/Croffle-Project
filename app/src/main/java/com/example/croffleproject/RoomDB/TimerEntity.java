@@ -18,16 +18,15 @@ public class TimerEntity {
     private String timer_name;
 
     @ColumnInfo(name = "SetTime")
-    private int set_time;
+    private String set_time;
 
     @ColumnInfo(name = "Repeat")
     private ArrayList<String> repeat;
 
-    public TimerEntity(){
-        this.Tid = 0;
-        this.timer_name = "TimerTest";
-        this.set_time = 300;
-        this.repeat = null;
+    public TimerEntity(String timer_name, String set_time, ArrayList<String> repeat) {
+        this.timer_name = timer_name;
+        this.set_time = set_time;
+        this.repeat = repeat;
     }
 
     public int getTid() {
@@ -47,11 +46,11 @@ public class TimerEntity {
     }
 
 
-    public int getSet_time() {
+    public String getSet_time() {
         return set_time;
     }
 
-    public void setSet_time(int n_set_time) {
+    public void setSet_time(String n_set_time) {
 
         this.set_time = n_set_time;
     }

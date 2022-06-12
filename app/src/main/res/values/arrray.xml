@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mode"> </string>
+        <string-array name = "modeselect">눈추적 모드 선택
+            <item name = "low_mode">약한 모드</item>
+            <item name = "mid_mode">중간 모드</item>
+            <item name = "strong_mode">강한 모드</item>
+        </string-array>
+</resources>
