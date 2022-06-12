@@ -152,6 +152,12 @@ public class AnalyticsFragment extends Fragment {
 
         Act = container.getContext();
         appDatabase = AppDatabase.getInstance(Act);
+        appDatabase.analyticsDao().insert(new AnalyticsEntity(
+                starting, LocalDate.now().minusDays(6), LocalTime.of(0, 0), LocalTime.of(0, 0), LocalTime.of(0, 0)))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+
         appDatabase.measurementTableDao().insert(new MeasurementTableEntity(
                 1, "sad", "정처기", "01:00", LocalDateTime.now(), LocalDateTime.now().plusHours(1)))
                 .subscribeOn(Schedulers.io())

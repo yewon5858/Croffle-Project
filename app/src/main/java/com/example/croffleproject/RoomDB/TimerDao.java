@@ -10,11 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Completable;
-<<<<<<< HEAD
-=======
+
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
->>>>>>> 6535136c2834dd72e5b07b6b77f02df1a1167edb
 import io.reactivex.Single;
 
 @Dao

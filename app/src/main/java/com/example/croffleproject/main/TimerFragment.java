@@ -1,6 +1,5 @@
 package com.example.croffleproject.main;
 
-<<<<<<< HEAD
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,10 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.room.Room;
 
-=======
+
 import android.content.Context;
 import android.os.Bundle;
->>>>>>> 6535136c2834dd72e5b07b6b77f02df1a1167edb
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,9 +50,7 @@ public class TimerFragment extends Fragment {
     ImageButton ultra_start;
     ImageButton timeSettingButton;
 
-<<<<<<< HEAD
     @Nullable
-=======
     RecyclerView recyclerView;
     ItemClickListener itemClickListener;
     TimerAdapter timerAdapter;
@@ -67,16 +64,14 @@ public class TimerFragment extends Fragment {
     TextView timerSet;
     TextView modeSet;
 
->>>>>>> 6535136c2834dd72e5b07b6b77f02df1a1167edb
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
 
         // Inflate the layout for this fragment
-<<<<<<< HEAD
+
         root = inflater.inflate(R.layout.fragment_timer, container, false);
-=======
-        View root = inflater.inflate(R.layout.fragment_timer, container, false);
+
         context = container.getContext();
         appDatabase = AppDatabase.getInstance(context);
         recyclerView = root.findViewById(R.id.recycler_view);
@@ -166,7 +161,7 @@ public class TimerFragment extends Fragment {
 
 
         // 타이머 설정 버튼 (타이머추가, 타이머 수정 및 삭제, 타이머 순서 변경)
->>>>>>> 6535136c2834dd72e5b07b6b77f02df1a1167edb
+
         timeSettingButton = root.findViewById(R.id.timersettingbtn);
         ultra_start = root.findViewById(R.id.start_timer_btn);
 
@@ -179,7 +174,7 @@ public class TimerFragment extends Fragment {
             }
         });
         timeSettingButton.setOnClickListener(view -> {
-<<<<<<< HEAD
+
             timerSettingDialog dialog = new timerSettingDialog();
             dialog.show(getActivity().getSupportFragmentManager(), "dialog");
 //            BottomSheetDialog d = new BottomSheetDialog(getActivity(),R.style.DialogStyle);
@@ -191,19 +186,8 @@ public class TimerFragment extends Fragment {
             Log.e("view", "is viewed");
         });
         return root;
-=======
 
-            timerSettingDialog dialog = new timerSettingDialog();
-            dialog.show(getActivity().getSupportFragmentManager(), "dialog");
-            Log.e("view","is viewed");
-
-        });
-        return root;
-
-    }
->>>>>>> 6535136c2834dd72e5b07b6b77f02df1a1167edb
-
-    }
+        }
 
 }
 
