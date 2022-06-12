@@ -1,35 +1,22 @@
 package com.example.croffleproject.main;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.room.Room;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ToggleButton;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.croffleproject.R;
-import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
 import com.example.croffleproject.RoomDB.TimerEntity;
-import com.example.croffleproject.RoomDB.TimerTableDao;
-import com.example.croffleproject.RoomDB.TimerTableEntity;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
-import com.example.croffleproject.databinding.TimersettingbottomsheetBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.CircularToggle;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
