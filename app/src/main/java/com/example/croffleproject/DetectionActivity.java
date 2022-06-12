@@ -541,7 +541,6 @@ public class DetectionActivity extends AppCompatActivity {
         modelMeasurementTable.setMeas_StartTimeDB(Meas_StartTimeDB_txt);
         modelMeasurementTable.setMeas_EndTimeDB(Meas_EndTimeDB_txt);
         AppDatabase.getInstance(getApplicationContext()).measurementTableDao().insert(modelMeasurementTable);
-        AppDatabase.getInstance(getApplicationContext())
         //MeasurementRoomDatabase.getDatabase(getApplicationContext()).getMeasurementTableDao().deleteAll(); 이건 삭제
 
         Toast.makeText(this, "측정 시간 저장", Toast.LENGTH_SHORT).show();
