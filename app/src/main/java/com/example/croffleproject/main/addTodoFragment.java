@@ -1,29 +1,26 @@
 package com.example.croffleproject.main;
 
-import android.os.AsyncTask;
+import android.content.Context;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.room.Room;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ToggleButton;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.croffleproject.R;
 import com.example.croffleproject.RoomDB.AppDatabase;
-import com.example.croffleproject.RoomDB.TimerTableDao;
-import com.example.croffleproject.RoomDB.TimerTableEntity;
+import com.example.croffleproject.RoomDB.TimerEntity;
 import com.example.croffleproject.databinding.FragmentAddtodoBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nex3z.togglebuttongroup.MultiSelectToggleGroup;
 import com.nex3z.togglebuttongroup.button.CircularToggle;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 //
 ///**
@@ -34,11 +31,18 @@ import java.util.Set;
 public class addTodoFragment extends Fragment {
 
     MainActivity mainActivity = (MainActivity)MainActivity.mContext;
-
     private static final String LOG_TAG = addTodoFragment.class.getSimpleName();
     private FragmentAddtodoBinding binding = null;
+    Context context;
+    AppDatabase appDatabase;
+    String title;
+    String hour;
+    String minute;
+    String second;
+    String goalTime;
     boolean[] weekCycleOn = new boolean[7];
-
+    ArrayList<String> repeat = new ArrayList<>();
+    TimerFragment timerFragment = new TimerFragment();
 
     public addTodoFragment() {
         // Required empty public constructor
@@ -48,50 +52,35 @@ public class addTodoFragment extends Fragment {
                              Bundle savedInstanceState) {
         binding = FragmentAddtodoBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-//        final AppDatabase database = Room.databaseBuilder(this.getContext(), AppDatabase.class, "todoTimer")
-//                .allowMainThreadQueries()
-//                .build();
-//
-//        database.timerTableDao().getAll().observe(getViewLifecycleOwner(), timers -> { //todos로 데이터가 변경될 때마다 들어오게 됨(observe)
-//            // timers.toString();
-//            // Log.e(weekCycleOn[0]+"","is weekCycleOn");
-//            init();
-//
-//        });
 
-        //시간관련 입력
-       String hour = binding.hourET.getText().toString();
-       String minute = binding.minuteET.getText().toString();
-       String second = binding.secondET.getText().toString();
-        //시간정보를 int로 변환
-    //    int hourInt = Integer.parseInt(String.valueOf(binding.hourET.getText()));
-   //     int minuteInt = Integer.parseInt(String.valueOf(binding.minuteET.getText()));
-   //     int secondInt = Integer.parseInt(String.valueOf(binding.secondET.getText()));
+        init();
 
-//
-//       // if (hourInt > 24 || minuteInt > 59 || secondInt >  59) {
-//            Toast.makeText(this.getContext(),"24시간,59분,59초 이내의 숫자만 입력이 가능합니다. 다시 입력해주세요!",Toast.LENGTH_SHORT);
-//     //   }
-//   //     else{
-            String goalTime = hour+minute+second;
+        context = container.getContext();
+        appDatabase = AppDatabase.getInstance(context);
+
+
         binding.addButton.setOnClickListener(view -> {
-         //       database.timerTableDao().insert(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
-                for(int i =0;i<7;i++){
-                    Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
-                }
-            });
+            for(int i = 0 ; i< weekCycleOn.length;i++){
+                repeat.add(weekCycleOn[i]+"");
+            }
+            for(int i =0;i<7;i++){
+                Log.e(repeat+", "+weekCycleOn[i]+", "+i,"is weekCycleOn");
+            }
+            title = binding.timerTitle.getText().toString();
+            //시간관련 입력
+            hour = binding.hourET.getText().toString();
+            minute = binding.minuteET.getText().toString();
+            second = binding.secondET.getText().toString();
+            goalTime = hour+minute+second;
 
-//asnc 사용
-//            binding.addButton.setOnClickListener(view -> {
-//                new InsertAsyncTask(database.timerTableDao())
-//                        .execute(new TimerTableEntity(binding.timerTitle.getText().toString(),goalTime));
-//                for(int i =0;i<7;i++){
-//                    Log.e(weekCycleOn[i]+" "+i,"is weekCycleOn");
-//                }
-//                //mResultTextView.setText(getAllString(db)); // 화면 갱신
-//            });
-
-   //     }
+            appDatabase.timerDao().insert(new TimerEntity(
+                    title,goalTime,repeat))
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .doOnError(Throwable->Throwable.toString())
+                    .subscribe();
+            ChangeFragment(timerFragment);
+        });
 
 
         return root;
@@ -107,29 +96,10 @@ public class addTodoFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mainActivity.HideBottomNavi(false);
+        ChangeFragment(timerFragment);
         Log.e("show","is show");
     }
 
-
-//    //AsyncTask로 데이터를 불러옴
-//    private static class InsertAsyncTask extends AsyncTask<TimerTableEntity,Void,Void> {
-//        private TimerTableDao timerTableDao;
-//
-//        public InsertAsyncTask(TimerTableDao timerTableDao) {
-//            this.timerTableDao = timerTableDao;
-//        }
-//
-//        @Override
-//        protected Void doInBackground(TimerTableEntity... timers) {
-//            for(int i=0; i< timers.length; i++) {
-//                timerTableDao.insert(timers[i]);
-//                Log.e("is add",timers[0].toString());
-//            }
-////            timerTableDao.insert(timers[0]);
-////            Log.e("is add",timers[0].toString());
-//            return null;
-//        }
-//    }
     // 다중 선택 토글의 내용 확인
     private void init() {
         MultiSelectToggleGroup multi = null;
@@ -148,7 +118,7 @@ public class addTodoFragment extends Fragment {
 
             @Override
             public void onCheckedStateChanged(MultiSelectToggleGroup group, int checkedId, boolean isChecked) {
-               // Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds());
+                // Log.v(LOG_TAG, "onCheckedStateChanged(): group.getCheckedIds() = " + group.getCheckedIds());
 
                 if(checkedId == sun.getId() && isChecked){
                     weekCycleOn[0] = true;
@@ -158,34 +128,38 @@ public class addTodoFragment extends Fragment {
                     weekCycleOn[1] = true;
                     Log.e("", "Checked mon!!!");
                 }
-                    if (checkedId == tue.getId() && isChecked) {
-                        weekCycleOn[2] = true;
-                        Log.e("", "Checked tue!!!");
-                    }
-                    if (checkedId == wen.getId() && isChecked) {
-                        weekCycleOn[3] = true;
-                        Log.e("", "Checked wen!!!");
-                    }
-
-                    if (checkedId == thu.getId() && isChecked) {
-                        weekCycleOn[4] = true;
-                        Log.e("", "Checked thu!!!");
-                    }
-                    if (checkedId == fri.getId() && isChecked) {
-                        weekCycleOn[5] = true;
-                        Log.e("", "Checked sat!!!");
-                    }
-
-                    if (checkedId == sat.getId() && isChecked) {
-                        weekCycleOn[6] = true;
-                        Log.e("", "Checked sat!!!");
-                    }
-//                Object[] ids = group.getCheckedIds().toArray();
-//                for (int i =0;i<ids.length;i++){
-//                    Log.e(ids[i].toString(),"is ids");
-//                }
+                if (checkedId == tue.getId() && isChecked) {
+                    weekCycleOn[2] = true;
+                    Log.e("", "Checked tue!!!");
                 }
+                if (checkedId == wen.getId() && isChecked) {
+                    weekCycleOn[3] = true;
+                    Log.e("", "Checked wen!!!");
+                }
+
+                if (checkedId == thu.getId() && isChecked) {
+                    weekCycleOn[4] = true;
+                    Log.e("", "Checked thu!!!");
+                }
+                if (checkedId == fri.getId() && isChecked) {
+                    weekCycleOn[5] = true;
+                    Log.e("", "Checked sat!!!");
+                }
+
+                if (checkedId == sat.getId() && isChecked) {
+                    weekCycleOn[6] = true;
+                    Log.e("", "Checked sat!!!");
+                }
+
+            }
         });
     }
+
+    void ChangeFragment(Fragment fragment){
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.commit();
+    }
+
 
 }

@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import com.example.croffleproject.RoomDB.AppDatabase;
 
 import com.example.croffleproject.AnalyticsFragment;
 import com.example.croffleproject.R;
@@ -22,7 +23,7 @@ import com.example.croffleproject.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
 
-public static Context mContext;
+    public static Context mContext;
     public ActivityMainBinding activityMainBinding;
 
 

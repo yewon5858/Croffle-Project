@@ -4,11 +4,15 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.TypeConverters;
 import androidx.room.Update;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.reactivex.Completable;
+import io.reactivex.Flowable;
+import io.reactivex.Observable;
+import io.reactivex.Single;
 
 @Dao
 public interface TimerDao {
@@ -18,21 +22,19 @@ public interface TimerDao {
     @Query("DELETE FROM TimerTable")
     void clearTable();
 
+    @Query("SELECT TimerName FROM TimerTable")
+    Single<List<String>> TimerNames();
+
+    // 행 개수 반환
+    @Query("SELECT COUNT(*) FROM TimerTable")
+    int CountRow();
+
     @Insert
-    void insert(TimerEntity timerEntity);
+    Single<Long> insert(TimerEntity timerEntity);
 
     @Update
-    void update(TimerEntity timerEntity);
+    Single<Integer> update(TimerEntity timerEntity);
 
     @Delete
-    void delete(TimerEntity timerEntity);
-
-    @Query("SELECT TimerName FROM timertable")
-    String get_tName();
-
-    @Query("SELECT SetTime FROM timertable")
-    int get_sTime();
-
-    @Query("SELECT Repeat FROM timertable")
-    String getRepeat();
+    Completable delete(TimerEntity timerEntity);
 }
