@@ -55,8 +55,6 @@ public class TimerFragment extends Fragment {
                 startActivity(intent);
             }
         });
-/*
->>>>>>> origin/PJC
         timeSettingButton.setOnClickListener(view -> {
             timerSettingDialog dialog = new timerSettingDialog();
             dialog.show(getActivity().getSupportFragmentManager(), "dialog");
@@ -67,7 +65,7 @@ public class TimerFragment extends Fragment {
 //            d.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 //            d.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             Log.e("view", "is viewed");
-        });*/
+        });
         return root;
 
     }

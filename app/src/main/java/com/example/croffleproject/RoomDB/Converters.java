@@ -7,6 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -60,6 +61,26 @@ public class Converters {
             return null;
         } else {
             return time.toString();
+        }
+    }
+
+
+    // LocalDateTime Convert
+    @TypeConverter
+    public static LocalDateTime toDateTime(String DateTimeString) {
+        if (DateTimeString == null) {
+            return null;
+        } else {
+            return LocalDateTime.parse(DateTimeString);
+        }
+    }
+
+    @TypeConverter
+    public static String toDateTimeString(LocalDateTime dateTime) {
+        if (dateTime == null) {
+            return null;
+        } else {
+            return dateTime.toString();
         }
     }
 }

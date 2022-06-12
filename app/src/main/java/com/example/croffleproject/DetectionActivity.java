@@ -23,11 +23,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.croffleproject.RoomDB.DetectionRoomDatabase;
-import com.example.croffleproject.RoomDB.EntityClass.ConcentrationTableEntity;
-import com.example.croffleproject.RoomDB.EntityClass.MeasurementTableEntity;
+import com.example.croffleproject.RoomDB.AppDatabase;
+import com.example.croffleproject.RoomDB.ConcentrationTableEntity;
+import com.example.croffleproject.RoomDB.MeasurementTableEntity;
 import com.example.croffleproject.main.MainActivity;
-import com.example.croffleproject.main.TimerFragment;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmark;
 import com.google.mediapipe.formats.proto.LandmarkProto.NormalizedLandmarkList;
 import com.google.mediapipe.components.CameraHelper;
@@ -541,7 +540,8 @@ public class DetectionActivity extends AppCompatActivity {
         modelMeasurementTable.setMeas_UseTimerTimeDB(Meas_UseTimerTimeDB_txt);
         modelMeasurementTable.setMeas_StartTimeDB(Meas_StartTimeDB_txt);
         modelMeasurementTable.setMeas_EndTimeDB(Meas_EndTimeDB_txt);
-        DetectionRoomDatabase.getDatabase(getApplicationContext()).getMeasurementTableDao().insert(modelMeasurementTable);
+        AppDatabase.getInstance(getApplicationContext()).measurementTableDao().insert(modelMeasurementTable);
+        AppDatabase.getInstance(getApplicationContext())
         //MeasurementRoomDatabase.getDatabase(getApplicationContext()).getMeasurementTableDao().deleteAll(); 이건 삭제
 
         Toast.makeText(this, "측정 시간 저장", Toast.LENGTH_SHORT).show();
@@ -563,7 +563,7 @@ public class DetectionActivity extends AppCompatActivity {
         modelConcentrationTable.setConc_UseTimerTimeDB(Conc_UseTimerTimeDB_txt);
         modelConcentrationTable.setConc_StartTimeDB(Conc_StartTimeDB_txt);
         modelConcentrationTable.setConc_EndTimeDB(Conc_EndTimeDB_txt);
-        DetectionRoomDatabase.getDatabase(getApplicationContext()).getConcentrationTableDao().insert(modelConcentrationTable);
+        AppDatabase.getInstance(getApplicationContext()).concentrationTableDao().insert(modelConcentrationTable);
         //MeasurementRoomDatabase.getDatabase(getApplicationContext()).getMeasurementTableDao().deleteAll(); 이건 삭제
 
         Toast.makeText(this, "집중 시간 저장", Toast.LENGTH_SHORT).show();

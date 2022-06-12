@@ -10,6 +10,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.croffleproject.RoomDB.MeasurementTableEntity;
 import com.example.croffleproject.main.MainActivity;
 import com.example.croffleproject.RoomDB.AnalyticsEntity;
 import com.example.croffleproject.RoomDB.AppDatabase;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -66,6 +69,8 @@ public class AnalyticsFragment extends Fragment {
     private TextView highest;
 
     private AppDatabase appDatabase;
+    private LocalDateTime data;
+    private float value;
 
     private int starting = 100;
 
@@ -147,87 +152,115 @@ public class AnalyticsFragment extends Fragment {
 
         Act = container.getContext();
         appDatabase = AppDatabase.getInstance(Act);
-        appDatabase.analyticsDao().insert(new AnalyticsEntity(
-                starting, LocalDate.now(), null, LocalTime.of(0, 0),
-                LocalTime.of(0, 0), LocalTime.of(0, 0)))
+        appDatabase.measurementTableDao().insert(new MeasurementTableEntity(
+                1, "sad", "정처기", "01:00", LocalDateTime.now(), LocalDateTime.now().plusHours(1)))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
+
+        appDatabase.measurementTableDao().insert(new MeasurementTableEntity(
+                2, "sad", "개발", "01:00", LocalDateTime.now().plusHours(3), LocalDateTime.now().plusHours(5)))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe();
 
         pieChart = v.findViewById(R.id.PieChart);
 
-        ArrayList<PieEntry> time = new ArrayList<>();
-        time.add(new PieEntry(72, "개발"));
-        time.add(new PieEntry(60, "토익"));
-        time.add(new PieEntry(120,"자격증"));
-
-        PieDataSet pieDataSet = new PieDataSet(time, "");
-        pieDataSet.setColors(GraphColor.STANDARD_THEME);
-        pieDataSet.setValueTextSize(0);
-
-        PieData pieData = new PieData(pieDataSet);
-
-        pieChart.setData(pieData);
-        pieChart.getDescription().setEnabled(false);
-        pieChart.setCenterText(String.valueOf(LocalDate.now().getDayOfMonth()) + "일 공부 시간");
-        pieChart.setCenterTextSize(16f);
-        pieChart.setDrawRoundedSlices(true);
-        pieChart.setHoleRadius(72);
-        pieChart.setLogEnabled(false);
-        pieChart.setDrawEntryLabels(false);
-        pieChart.setDrawMarkers(false);
 
         date[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 1).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 1);
             }
         });
+
         date[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 2).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 2);
             }
         });
+
         date[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 3).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 3);
             }
         });
+
         date[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 4).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 4);
             }
         });
+
         date[4].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 5).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 5);
             }
         });
+
         date[5].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .minusDays(date.length - 6).getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 6);
             }
         });
+
         date[6].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pieChart.setCenterText(String.valueOf(LocalDate.now()
-                        .getDayOfMonth()) + "일 공부 시간");
+                ReplaceData(pieChart, date.length - 7);
             }
         });
 
+        // Inflate the layout for this fragment
+        return v;
+    }
 
+    public void ReplaceData(PieChart pieChart, int date) {
+        ArrayList<PieEntry> time = new ArrayList<>();
+        Act = getContext();
+        appDatabase = AppDatabase.getInstance(Act);
+
+        // 그래프 생성, 변경
+        appDatabase.measurementTableDao().getAllData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(item -> {
+                    for (MeasurementTableEntity measurementTableEntity : item) {
+                        if (measurementTableEntity.getMeas_StartTimeDB().getDayOfMonth() == LocalDateTime.now().minusDays(date).getDayOfMonth()) {
+                            Log.e("hi", "ok");
+                            data = measurementTableEntity.getMeas_EndTimeDB();
+                            data.minusHours(measurementTableEntity.getMeas_StartTimeDB().getHour());
+                            data.minusMinutes(measurementTableEntity.getMeas_StartTimeDB().getMinute());
+                            data.minusSeconds(measurementTableEntity.getMeas_StartTimeDB().getSecond());
+
+                            value = data.getSecond() + (data.getMinute() * 60) + (data.getHour() * 60 * 60);
+                            time.add(new PieEntry(value, measurementTableEntity.getMeas_UseTimerNameDB()));
+                        }
+                    }
+                    PieDataSet pieDataSet = new PieDataSet(time, "");
+                    pieDataSet.setColors(GraphColor.STANDARD_THEME);
+                    pieDataSet.setValueTextSize(0);
+
+                    PieData pieData = new PieData(pieDataSet);
+
+                    pieChart.setData(pieData);
+                    pieChart.getDescription().setEnabled(false);
+                    pieChart.setCenterText(String.valueOf(LocalDate.now().minusDays(date).getDayOfMonth()) + "일 공부 시간");
+                    pieChart.setCenterTextSize(16f);
+                    pieChart.setDrawRoundedSlices(true);
+                    pieChart.setHoleRadius(72);
+                    pieChart.setLogEnabled(false);
+                    pieChart.setDrawEntryLabels(false);
+                    pieChart.setDrawMarkers(false);
+                    pieChart.invalidate();
+                });
+
+        // 데이터 변경
         appDatabase.analyticsDao().getTable(starting)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -238,16 +271,29 @@ public class AnalyticsFragment extends Fragment {
                             + String.valueOf(analyticsEntity.getRest().getMinute()) + "분");
                     highest.setText(String.valueOf(analyticsEntity.getMaximum().getHour()) + "시 "
                             + String.valueOf(analyticsEntity.getMaximum().getMinute()) + "분");
-
                 })
                 .subscribe();
 
-        // Inflate the layout for this fragment
-        return v;
-    }
-
-    public void CreateGraph() {
-        Act = getContext();
-        appDatabase = AppDatabase.getInstance(Act);
+        appDatabase.analyticsDao().getAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(item -> {
+                    for (AnalyticsEntity analyticsEntity : item) {
+                        if (analyticsEntity.getDate().equals(LocalDate.now().minusDays(date))) {
+                            appDatabase.analyticsDao().getTableToDate(LocalDate.now().minusDays(date))
+                                    .subscribeOn(Schedulers.io())
+                                    .observeOn(AndroidSchedulers.mainThread())
+                                    .doOnSuccess(analyticsEntity1 -> {
+                                        max.setText(String.valueOf(analyticsEntity.getTotal().getHour()) + "시 "
+                                                + String.valueOf(analyticsEntity.getTotal().getMinute()) + "분");
+                                        rest.setText(String.valueOf(analyticsEntity.getRest().getHour()) + "시 "
+                                                + String.valueOf(analyticsEntity.getRest().getMinute()) + "분");
+                                        highest.setText(String.valueOf(analyticsEntity.getMaximum().getHour()) + "시 "
+                                                + String.valueOf(analyticsEntity.getMaximum().getMinute()) + "분");
+                                    })
+                                    .subscribe();
+                        }
+                    }
+                });
     }
 }

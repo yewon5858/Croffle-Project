@@ -8,17 +8,17 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import io.reactivex.annotations.NonNull;
+
 @Entity(tableName = "AnalyticsTable")
 public class AnalyticsEntity {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "AnalyticsId")
+    @NonNull
     private int StId;
 
     @ColumnInfo(name = "Date")
     private LocalDate date;
-
-    @ColumnInfo(name = "UsedTimer")
-    private ArrayList<String> used;
 
     @ColumnInfo(name = "TotalTime")
     private LocalTime total;
@@ -32,16 +32,14 @@ public class AnalyticsEntity {
     public AnalyticsEntity() {
         this.StId = 0;
         this.date = LocalDate.now();
-        this.used = null;
         this.total = LocalTime.now();
         this.rest = LocalTime.now();
         this.maximum = LocalTime.now();
     }
 
-    public AnalyticsEntity(int id, LocalDate data, ArrayList<String> used, LocalTime total, LocalTime rest, LocalTime max) {
+    public AnalyticsEntity(int id, LocalDate data, LocalTime total, LocalTime rest, LocalTime max) {
         this.StId = id;
         this.date = data;
-        this.used = used;
         this.total = total;
         this.rest = rest;
         this.maximum = max;
@@ -61,14 +59,6 @@ public class AnalyticsEntity {
 
     public void setDate(LocalDate n_date) {
         this.date = n_date;
-    }
-
-    public ArrayList<String> getUsed() {
-        return used;
-    }
-
-    public void setUsed(ArrayList<String> n_used) {
-        this.used = n_used;
     }
 
     public LocalTime getTotal() {
