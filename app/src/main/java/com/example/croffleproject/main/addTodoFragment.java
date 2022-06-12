@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.croffleproject.R;
 import com.example.croffleproject.RoomDB.AppDatabase;
@@ -41,6 +42,7 @@ public class addTodoFragment extends Fragment {
     String goalTime;
     boolean[] weekCycleOn = new boolean[7];
     ArrayList<String> repeat = new ArrayList<>();
+    TimerFragment timerFragment = new TimerFragment();
 
     public addTodoFragment() {
         // Required empty public constructor
@@ -77,7 +79,9 @@ public class addTodoFragment extends Fragment {
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnError(Throwable->Throwable.toString())
                     .subscribe();
+            ChangeFragment(timerFragment);
         });
+
 
         return root;
     }
@@ -92,6 +96,7 @@ public class addTodoFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         mainActivity.HideBottomNavi(false);
+        ChangeFragment(timerFragment);
         Log.e("show","is show");
     }
 
@@ -149,5 +154,12 @@ public class addTodoFragment extends Fragment {
             }
         });
     }
+
+    void ChangeFragment(Fragment fragment){
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout, fragment);
+        transaction.commit();
+    }
+
 
 }
