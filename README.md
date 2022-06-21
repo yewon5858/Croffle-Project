@@ -49,8 +49,8 @@
 본 프로젝트의 포크 혹은 별도로 분리되어 개발된 모듈 혹은 추가 리포지토리 목록입니다.
 - [Original Repository] - 본래 개발이 진행되던 Repository입니다. 오류로 인해 중단되었습니다.
 - [Now Repository] - Original Repository 중단 이후 옮긴 Repository입니다. 현 Repository입니다.
-- [박주철 Clone] - 박주철이 개발을 위해 만든 Clone입니다.
-- [최정민 Clone] - 최정민이 개발을 위해 만든 Clone입니다.
+- [박주철 Fork] - 박주철이 개발을 위해 만든 Fork입니다.
+- [최정민 Fork] - 최정민이 개발을 위해 만든 Fork입니다.
 - [focusDetection] - 머신러닝 및 집중력 감지 기능 제작을 위해 박주철이 별도로 만든 애플리케이션입니다.
 
 ### 자료
@@ -80,6 +80,6 @@
 
    [Original Repository]: <https://github.com/wncjf2000/Croffle-Project>
    [Now Repository]: <https://github.com/yewon5858/Croffle-Project>
-   [박주철 Clone]: <https://github.com/wncjf2000/Croffle-Project-1>
-   [최정민 Clone]: <https://github.com/spyker73/Croffle-Project>
+   [박주철 Fork]: <https://github.com/wncjf2000/Croffle-Project-1>
+   [최정민 Fork]: <https://github.com/spyker73/Croffle-Project>
    [focusDetection]: <https://github.com/wncjf2000/focusDetection>
