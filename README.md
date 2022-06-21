@@ -52,6 +52,7 @@
 - [박주철 Fork] - 박주철이 개발을 위해 만든 Fork입니다.
 - [최정민 Fork] - 최정민이 개발을 위해 만든 Fork입니다.
 - [focusDetection] - 머신러닝 및 집중력 감지 기능 제작을 위해 박주철이 별도로 만든 애플리케이션입니다.
+- [CroffleProject_CamPro] - OpenCV 기반의 집중력 감지 기능 제작을 위해 박주철이 별도로 만든 프로토타입입니다.
 
 ### 자료
 본 개발을 하면서 작성된 보고서 및 발표 자료입니다. 
@@ -83,3 +84,4 @@
    [박주철 Fork]: <https://github.com/wncjf2000/Croffle-Project-1>
    [최정민 Fork]: <https://github.com/spyker73/Croffle-Project>
    [focusDetection]: <https://github.com/wncjf2000/focusDetection>
+   [CroffleProject_CamPro]: <https://github.com/wncjf2000/CroffleProject_CamPro>
