@@ -45,6 +45,14 @@
 - 안드로이드 스튜디오에서 .apk 형식으로 빌드합니다.
 - 애플리케이션을 스마트폰으로 옮긴 다음 실행합니다.
 
+### 포크 & 모듈 & 리포지토리
+본 프로젝트의 포크 혹은 별도로 분리되어 개발된 모듈 혹은 추가 리포지토리 목록입니다.
+- [Original Repository] - 본래 개발이 진행되던 Repository입니다. 오류로 인해 중단되었습니다.
+- [Now Repository] - Original Repository 중단 이후 옮긴 Repository입니다. 현 Repository입니다.
+- [박주철 Clone] - 박주철이 개발을 위해 만든 Clone입니다.
+- [최정민 Clone] - 최정민이 개발을 위해 만든 Clone입니다.
+- [focusDetection] - 머신러닝 및 집중력 감지 기능 제작을 위해 박주철이 별도로 만든 애플리케이션입니다.
+
 ### 자료
 본 개발을 하면서 작성된 보고서 및 발표 자료입니다. 
 | 보고서 자료 | 발표 자료 |
@@ -56,17 +64,11 @@
 
 ***
 # 향후 계획
-- 최적화 개선
-  저사양 및 구형 스마트폰에서의 원활한 작동이 되도록 최적화 개선이 필요
-- 안정성 개선
-  앱의 크래시 현상 및 데이터베이스 오작동 문제의 개선이 필요
-- 편의성 개선
-  타이머 연장 기능 개발 및 기타 편의성 측면에서의 개선이 필요
-- 통계 기능 강화
-  빈약한 통계 기능에 대한 대대적인 강화가 필요
-- 도움말 기능 강화 및 추가
-  없거나 적은 도움말 기능에 대한 대대적인 강화가 필요
-
+- 최적화 개선, 저사양 및 구형 스마트폰에서의 원활한 작동이 되도록 최적화 개선이 필요
+- 안정성 개선, 앱의 크래시 현상 및 데이터베이스 오작동 문제의 개선이 필요
+- 편의성 개선, 타이머 연장 기능 개발 및 기타 편의성 측면에서의 개선이 필요
+- 통계 기능 강화, 빈약한 통계 기능에 대한 대대적인 강화가 필요
+- 도움말 기능 강화 및 추가, 없거나 적은 도움말 기능에 대한 대대적인 강화가 필요
 
 
    [MPAndroidChart]: <https://github.com/PhilJay/MPAndroidChart>
@@ -74,3 +76,10 @@
    [Android Jetpack]: <https://github.com/androidx/androidx>
    [RxJava]: <https://github.com/ReactiveX/RxJava>
    [Mediapipe]: <https://github.com/google/mediapipe>
+
+
+   [Original Repository]: <https://github.com/wncjf2000/Croffle-Project>
+   [Now Repository]: <https://github.com/yewon5858/Croffle-Project>
+   [박주철 Clone]: <https://github.com/wncjf2000/Croffle-Project-1>
+   [최정민 Clone]: <https://github.com/spyker73/Croffle-Project>
+   [focusDetection]: <https://github.com/wncjf2000/focusDetection>
